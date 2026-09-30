@@ -1,0 +1,94 @@
+/*
+ * Semantic theme tokens. Components only ever use these names (bg-bg, text-fg-muted,
+ * border-border …); raw colour values live in this file and nowhere else.
+ *
+ * Dark is the default and the no-JS fallback. The light values are redefined on
+ * [data-theme='light'], which the pre-paint script sets on <html>.
+ *
+ * Contrast (WCAG 2.1, checked on bg / surface / surface-raised):
+ *   dark   fg 17.6 / 16.8 / 16.4   muted 5.7 / 5.4 / 5.3   accent 15.6 / 14.9 / 14.6
+ *   light  fg 16.9 / 15.7 / 14.6   muted 5.7 / 5.3 / 5.0   accent 5.6 / 5.2 / 4.8
+ * --color-fg-faint is ~3:1 by design: decoration and ghost numerals only, never information.
+ * The light accent is darkened from the brief's #5b7e16 (4.2:1 on bg, 3.9:1 on surface,
+ * below the 4.5:1 AA floor for small text) to #4a6a10.
+ */
+@theme static {
+  --color-*: initial;
+
+  --color-bg: #090909;
+  --color-surface: #101010;
+  --color-surface-raised: #131313;
+  --color-fg: #f2f1ed;
+  --color-fg-muted: #8a8985;
+  --color-fg-faint: #5d5d59;
+  --color-border: rgb(255 255 255 / 13%);
+  --color-border-strong: rgb(255 255 255 / 30%);
+  --color-grid: rgb(255 255 255 / 8%);
+  --color-accent: #c7f36b;
+  --color-focus: #f2f1ed;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #f3f2ee;
+  --color-surface: #ebeae6;
+  --color-surface-raised: #e3e2dd;
+  --color-fg: #111111;
+  --color-fg-muted: #5f5f5a;
+  --color-fg-faint: #888782;
+  --color-border: rgb(0 0 0 / 16%);
+  --color-border-strong: rgb(0 0 0 / 30%);
+  --color-grid: rgb(0 0 0 / 9%);
+  --color-accent: #4a6a10;
+  --color-focus: #111111;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans-face), 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* Type scale. Display sizes are fluid; metadata stays compact but never below 11px. */
+@theme {
+  --text-display: clamp(2.25rem, 0.6rem + 7.6vw, 9rem);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 500;
+
+  --text-headline: clamp(2rem, 1.1rem + 3.7vw, 4.75rem);
+  --text-headline--line-height: 1;
+  --text-headline--letter-spacing: -0.04em;
+  --text-headline--font-weight: 500;
+
+  --text-section: clamp(1.5rem, 1.15rem + 1.3vw, 2.5rem);
+  --text-section--line-height: 1.08;
+  --text-section--letter-spacing: -0.03em;
+  --text-section--font-weight: 500;
+
+  --text-title: clamp(1.1875rem, 1.05rem + 0.55vw, 1.625rem);
+  --text-title--line-height: 1.18;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 500;
+
+  --text-lead: clamp(1.125rem, 1.03rem + 0.4vw, 1.4375rem);
+  --text-lead--line-height: 1.42;
+  --text-lead--letter-spacing: -0.012em;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.05em;
+
+  --text-caption: 0.6875rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.05em;
+
+  --breakpoint-2xl: 96rem;
+}

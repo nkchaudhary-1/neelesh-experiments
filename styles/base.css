@@ -1,0 +1,165 @@
+:root {
+  --frame-max: 110rem;
+  --header-h: 3rem;
+  /* Padding inside every grid cell. */
+  --pad: clamp(1rem, 0.55rem + 1.3vw, 2rem);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  body {
+    min-width: 20rem;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  dialog {
+    color: inherit;
+  }
+
+  /* Native modal dialog: lock page scroll while the mobile menu is open. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+
+/* Short-lived class added by the theme toggle so colours cross-fade instead of snapping. */
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .nudge,
+  .nudge-ne,
+  .zoom {
+    transform: none !important;
+  }
+}
+
+@layer components {
+  /* Mono metadata voice: navigation, dates, statuses, tags, captions. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    transform: translateY(-200%);
+    background-color: var(--color-fg);
+    color: var(--color-bg);
+    padding: 0.75rem 1rem;
+  }
+
+  .skip-link:focus-visible {
+    transform: none;
+  }
+
+  @keyframes fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .fade-rise {
+    animation: fade-rise 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  /* Horizontal scroller with soft edge fades that only appear when there is more to see. */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    --fade-start: 0px;
+    --fade-end: 0px;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 var(--fade-start),
+      #000 calc(100% - var(--fade-end)),
+      transparent 100%
+    );
+  }
+
+  .scroll-x::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-x[data-start='true'] {
+    --fade-start: 2rem;
+  }
+
+  .scroll-x[data-end='true'] {
+    --fade-end: 2.5rem;
+  }
+}

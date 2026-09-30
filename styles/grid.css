@@ -1,0 +1,204 @@
+/*
+ * The grid is structural: rules are 1px borders on the cells themselves.
+ *
+ *   <div class="frame">                     max-width container; clips the last column's rule
+ *     <ul class="rule-grid">                12 columns from md up, one column below
+ *       <li class="cell md:col-span-7">…
+ *
+ * Every cell draws its own right and bottom rule. .rule-grid is 1px wider than the frame
+ * so the outermost right rule is clipped away, which gives exact rules between cells
+ * whatever the spans are, with nothing doubled and nothing left open.
+ */
+@layer components {
+  .frame {
+    width: 100%;
+    max-width: var(--frame-max);
+    margin-inline: auto;
+    overflow-x: clip;
+  }
+
+  @media (min-width: 110rem) {
+    .frame {
+      border-inline: 1px solid var(--color-border);
+    }
+  }
+
+  .rule-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    margin-right: -1px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .cell {
+    grid-column: 1 / -1;
+    min-width: 0;
+    padding: var(--pad);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Whole-cell links: the title link stretches to cover the cell, hover and focus behave alike. */
+  .interactive {
+    position: relative;
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease;
+  }
+
+  .interactive:has(:focus-visible) {
+    background-color: var(--color-surface);
+    border-bottom-color: var(--color-border-strong);
+  }
+
+  @media (hover: hover) {
+    .interactive:hover {
+      background-color: var(--color-surface);
+      border-bottom-color: var(--color-border-strong);
+    }
+  }
+
+  .stretched::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .stretched:focus-visible {
+    outline: none;
+  }
+
+  .stretched:focus-visible::after {
+    outline: 2px solid var(--color-focus);
+    outline-offset: -3px;
+  }
+
+  .nudge,
+  .nudge-ne,
+  .zoom {
+    transition: transform 160ms ease;
+  }
+
+  .interactive:has(:focus-visible) .nudge {
+    transform: translateX(3px);
+  }
+
+  .interactive:has(:focus-visible) .nudge-ne {
+    transform: translate(2px, -2px);
+  }
+
+  .interactive:has(:focus-visible) .zoom {
+    transform: scale(1.02);
+  }
+
+  @media (hover: hover) {
+    .interactive:hover .nudge {
+      transform: translateX(3px);
+    }
+
+    .interactive:hover .nudge-ne {
+      transform: translate(2px, -2px);
+    }
+
+    .interactive:hover .zoom {
+      transform: scale(1.02);
+    }
+  }
+
+  /*
+   * Tiles share their image row and text row with the tiles beside them (subgrid), so the
+   * dividers and text always line up even when spans and crops differ.
+   */
+  .tiles > .tile {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-content: start;
+  }
+
+  .tiles > .tile > .tile-visual {
+    align-self: stretch;
+    height: auto;
+  }
+
+  /* Tablet: a last tile with no partner spans the row so the rules still close. */
+  @media (min-width: 48rem) and (max-width: 63.99rem) {
+    .tiles > .cell:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+/*
+ * INDEX rows. Below lg each row is an intentional stack:
+ *   001   2026.09.29   ● LIVE
+ *   Title                   →
+ *   AI / Interaction
+ * From lg it becomes a database line with vertical rules between fixed and flexible columns.
+ */
+@layer components {
+  .row-index {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'id date status'
+      'title title action'
+      'cats cats cats';
+    align-items: center;
+    gap: 0.7rem 1.1rem;
+    padding: var(--pad);
+  }
+
+  .row-index > .a-id {
+    grid-area: id;
+  }
+  .row-index > .a-date {
+    grid-area: date;
+  }
+  .row-index > .a-status {
+    grid-area: status;
+    justify-self: end;
+  }
+  .row-index > .a-title {
+    grid-area: title;
+  }
+  .row-index > .a-action {
+    grid-area: action;
+    justify-self: end;
+  }
+  .row-index > .a-cats {
+    grid-area: cats;
+  }
+
+  @media (min-width: 64rem) {
+    .row-index {
+      grid-template-columns: 4.5rem minmax(0, 4fr) minmax(0, 3fr) 9.5rem 8rem 5.5rem;
+      grid-template-areas: 'id title cats status date action';
+      gap: 0;
+      padding: 0;
+    }
+
+    .row-index > * {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      padding: 1.25rem var(--pad);
+      border-left: 1px solid var(--color-border);
+    }
+
+    .row-index > .a-id {
+      padding-inline: 1rem;
+      border-left: 0;
+    }
+
+    .row-index > .a-status,
+    .row-index > .a-action {
+      justify-self: stretch;
+    }
+
+    .row-index--head > * {
+      padding-block: 0.7rem;
+    }
+  }
+}
