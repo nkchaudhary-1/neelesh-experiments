@@ -15,6 +15,8 @@ export const siteConfig = {
   exploring: ['AI', 'Interaction', 'Motion', 'Web'],
   links: {
     github: 'https://github.com/nkchaudhary-1',
+    linkedin: 'https://www.linkedin.com/in/nkchaudhary01',
+    portfolio: 'https://neelesh.one',
     /** Leave empty to hide the email link everywhere. */
     email: '',
   },

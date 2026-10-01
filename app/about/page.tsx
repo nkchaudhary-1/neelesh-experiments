@@ -8,14 +8,14 @@ import { siteConfig } from '@/lib/site-config'
 export const metadata = pageMetadata({
   title: 'About',
   description:
-    'A short note on who is behind the archive and why it exists: curiosity about technology, AI, interaction and digital products.',
+    'Neelesh Chaudhary, a senior product designer in Gurugram, on why this archive exists: curiosity about technology, AI, interaction and digital products.',
   path: '/about',
 })
 
 const linkClass = 'label inline-flex min-h-11 items-center text-accent underline underline-offset-4'
 
 export default function AboutPage() {
-  const { github, email } = siteConfig.links
+  const { linkedin, github, portfolio, email } = siteConfig.links
 
   return (
     <div className="frame">
@@ -35,8 +35,14 @@ export default function AboutPage() {
         </div>
         <aside aria-label="Links" className="cell flex flex-col gap-1 py-10 md:py-16 lg:col-span-3">
           <p className="label mb-2 text-fg-muted">Elsewhere</p>
+          <ExternalLink href={linkedin} className={linkClass}>
+            LinkedIn
+          </ExternalLink>
           <ExternalLink href={github} className={linkClass}>
             GitHub
+          </ExternalLink>
+          <ExternalLink href={portfolio} className={linkClass}>
+            Portfolio
           </ExternalLink>
           {email ? (
             <a href={`mailto:${email}`} className={linkClass}>

@@ -87,7 +87,7 @@ The URL drives `metadataBase`, canonical URLs, Open Graph, `sitemap.xml`, `robot
 
 ## Configuration
 
-Everything that is not content lives in [`lib/site-config.ts`](lib/site-config.ts): site name and description, the “currently exploring” list, GitHub and email links, the category list, and the theme default.
+Everything that is not content lives in [`lib/site-config.ts`](lib/site-config.ts): site name and description, the “currently exploring” list, GitHub, LinkedIn, portfolio and email links, the category list, and the theme default.
 
 - **Images.** `showImages` hides or shows every entry image site-wide. It is `false` for now.
 - **Email.** `links.email` is empty, so no email link is shown anywhere. Set it to show one in the footer and on the About page.
