@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { cn } from '@/lib/cn'
+import { siteConfig } from '@/lib/site-config'
 import type { MediaAsset } from '@/lib/content/types'
 
 /**
@@ -26,6 +27,9 @@ export function ExperimentVisual({
   zoom?: boolean
   className?: string
 }) {
+  // With images off the area is removed, not replaced by an empty plate.
+  if (!siteConfig.showImages) return null
+
   return (
     <div
       className={cn('relative w-full overflow-hidden bg-surface', className)}

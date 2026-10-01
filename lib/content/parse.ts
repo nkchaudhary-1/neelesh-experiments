@@ -75,3 +75,36 @@ export function splitSections(body: string): SplitBody {
       .filter((section) => section.body.length > 0),
   }
 }
+
+const IMAGE_LINE = /^\s*!\[[^\]]*\]\([^)]*\)\s*$/
+const CAPTION_LINE = /^\s*\*Caption:.*\*\s*$/i
+
+/**
+ * Removes image paragraphs and the *Caption:* line under them, leaving the text around them
+ * intact. Used when images are switched off, so no caption is left describing a missing picture.
+ */
+export function stripFigures(body: string): string {
+  const lines = body.split(/\r?\n/)
+  const kept: string[] = []
+  let fence: string | null = null
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index] as string
+    const fenceMatch = FENCE.exec(line)
+    if (fenceMatch) {
+      const marker = fenceMatch[1] as string
+      if (fence === null) fence = marker
+      else if (marker[0] === fence[0] && marker.length >= fence.length) fence = null
+    }
+
+    if (fence === null && IMAGE_LINE.test(line)) {
+      let next = index + 1
+      while (next < lines.length && (lines[next] as string).trim() === '') next++
+      if (next < lines.length && CAPTION_LINE.test(lines[next] as string)) index = next
+      continue
+    }
+    kept.push(line)
+  }
+
+  return kept.join('\n').replace(/\n{3,}/g, '\n\n')
+}

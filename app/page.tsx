@@ -12,6 +12,7 @@ import { StatStrip } from '@/components/stat-strip'
 import { getAboutSource, getCollection } from '@/lib/content'
 import { groupArchive } from '@/lib/content/collection'
 import { gridSpans } from '@/lib/content/explorer'
+import { cn } from '@/lib/cn'
 import { LG_COL_SPAN, rowSpans } from '@/lib/layout'
 import { pad, plural } from '@/lib/format'
 import { pageMetadata } from '@/lib/seo'
@@ -75,7 +76,12 @@ export default function HomePage() {
               <SectionLabel id="featured-heading">Featured experiment</SectionLabel>
               <article className="interactive">
                 <div className="rule-grid">
-                  <div className="cell order-2 flex flex-col justify-between gap-12 lg:order-1 lg:col-span-5">
+                  <div
+                    className={cn(
+                      'cell order-2 flex flex-col justify-between gap-12 lg:order-1',
+                      siteConfig.showImages ? 'lg:col-span-5' : 'lg:col-span-12',
+                    )}
+                  >
                     <div className="flex flex-col gap-6">
                       <ExperimentMeta experiment={featured} />
                       <h3 className="text-headline">
@@ -99,17 +105,19 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <div className="cell order-1 p-0 lg:order-2 lg:col-span-7">
-                    <ExperimentVisual
-                      cover={featured.cover}
-                      id={featured.id}
-                      title={featured.title}
-                      ratio="16 / 10"
-                      sizes="(min-width: 1760px) 1000px, (min-width: 1024px) 58vw, 100vw"
-                      preload
-                      className="h-full min-h-full"
-                    />
-                  </div>
+                  {siteConfig.showImages ? (
+                    <div className="cell order-1 p-0 lg:order-2 lg:col-span-7">
+                      <ExperimentVisual
+                        cover={featured.cover}
+                        id={featured.id}
+                        title={featured.title}
+                        ratio="16 / 10"
+                        sizes="(min-width: 1760px) 1000px, (min-width: 1024px) 58vw, 100vw"
+                        preload
+                        className="h-full min-h-full"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               </article>
             </section>

@@ -70,6 +70,8 @@ The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib
 
 `content/experiments/` holds five entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper and this site. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything is marked `building` because none of them has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
 
+**Images are currently switched off** with `showImages: false` in `lib/site-config.ts`: no cover or article image is shown or loaded, tiles become text-only and the featured entry spans the full width. Set it to `true` to bring them all back; nothing is deleted from the entry folders.
+
 The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. Swap in real screenshots whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
 
 OneMoment lives in a private repository, so its entry has no source link and stays high-level. Check that you are comfortable with everything it says before you deploy.
@@ -87,6 +89,7 @@ The URL drives `metadataBase`, canonical URLs, Open Graph, `sitemap.xml`, `robot
 
 Everything that is not content lives in [`lib/site-config.ts`](lib/site-config.ts): site name and description, the “currently exploring” list, GitHub and email links, the category list, and the theme default.
 
+- **Images.** `showImages` hides or shows every entry image site-wide. It is `false` for now.
 - **Email.** `links.email` is empty, so no email link is shown anywhere. Set it to show one in the footer and on the About page.
 - **Theme default.** First visits open in dark. Set `theme.followSystem` to `true` to follow `prefers-color-scheme` instead (dark stays the final fallback). An explicit choice always wins.
 - **About.** The text is `content/site/about.mdx`; the home page reuses its first paragraph.

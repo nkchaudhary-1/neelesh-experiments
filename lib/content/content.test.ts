@@ -15,7 +15,7 @@ import {
   normalizeAssetPath,
   type AssetResolver,
 } from '@/lib/content/entry'
-import { splitFrontmatter, splitSections } from '@/lib/content/parse'
+import { splitFrontmatter, splitSections, stripFigures } from '@/lib/content/parse'
 import { categoryDefinitions } from '@/lib/site-config'
 
 const resolveAsset: AssetResolver = (_folder, path) =>
@@ -292,5 +292,30 @@ describe('collection', () => {
 
     const one = experiments.find((entry) => entry.slug === 'one')!
     expect(getMoreInCategory(experiments, one)?.items.map((entry) => entry.slug)).toEqual(['two'])
+  })
+})
+
+describe('stripFigures', () => {
+  it('removes images and their captions but keeps the surrounding text', () => {
+    const body =
+      'Intro.\n\n![Alt](./a.png)\n\n*Caption: What it shows.*\n\nMiddle.\n\n![Alt two](./b.png)\n\nEnd.\n'
+    expect(stripFigures(body)).toBe('Intro.\n\nMiddle.\n\nEnd.\n')
+  })
+
+  it('handles a caption on the very next line and leaves other emphasis alone', () => {
+    expect(stripFigures('![Alt](./a.png)\n*Caption: Tight.*\nAfter.')).toBe('After.')
+    expect(stripFigures('![Alt](./a.png)\n\n*Not a caption.*')).toBe('\n*Not a caption.*')
+  })
+
+  it('does not touch image syntax inside code fences or inline images', () => {
+    const body = '```md\n![Alt](./a.png)\n```\n\nText ![icon](./i.png) inline.'
+    expect(stripFigures(body)).toBe(body)
+  })
+
+  it('lets a section that only held images disappear', () => {
+    const { sections } = splitSections(
+      stripFigures('## Media\n\n![A](./a.png)\n\n*Caption: x.*\n\n## Result\n\nDone.\n'),
+    )
+    expect(sections.map((section) => section.title)).toEqual(['Result'])
   })
 })

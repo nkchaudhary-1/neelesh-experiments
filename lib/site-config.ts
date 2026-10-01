@@ -18,6 +18,12 @@ export const siteConfig = {
     /** Leave empty to hide the email link everywhere. */
     email: '',
   },
+  /**
+   * false: no entry images anywhere. Covers become type-led plates, in-article images and
+   * their captions are left out, and no image file is loaded.
+   * true: show the cover and detail images that live in each entry folder.
+   */
+  showImages: false,
   theme: {
     /**
      * false: first visits always open in dark (the brand default).

@@ -11,9 +11,10 @@ import { SectionLabel } from '@/components/section-label'
 import { StatusBadge } from '@/components/status-badge'
 import { getCollection, getExperiment } from '@/lib/content'
 import { getAdjacent, getMoreInCategory } from '@/lib/content/collection'
-import { splitSections } from '@/lib/content/parse'
+import { splitSections, stripFigures } from '@/lib/content/parse'
 import { formatDate } from '@/lib/format'
 import { experimentJsonLd, pageMetadata } from '@/lib/seo'
+import { siteConfig } from '@/lib/site-config'
 import { absoluteUrl } from '@/lib/site-url'
 
 // Unknown slugs, drafts included, get a real 404 status rather than a streamed soft-404.
@@ -56,7 +57,9 @@ export default async function ExperimentPage({ params }: Props) {
   const { experiments } = getCollection()
   const { previous, next } = getAdjacent(experiments, experiment.slug)
   const related = getMoreInCategory(experiments, experiment)
-  const { lead, sections: authored } = splitSections(experiment.body)
+  const { lead, sections: authored } = splitSections(
+    siteConfig.showImages ? experiment.body : stripFigures(experiment.body),
+  )
 
   // Frontmatter stack is shown as metadata, so a "## Stack" section would only repeat it.
   const sections = authored.filter(
@@ -110,19 +113,21 @@ export default async function ExperimentPage({ params }: Props) {
             <ExperimentMeta experiment={experiment} variant="list" />
           </div>
         </div>
-        <div className="rule-grid">
-          <div className="cell p-0">
-            <ExperimentVisual
-              cover={experiment.cover}
-              id={experiment.id}
-              title={experiment.title}
-              ratio="16 / 9"
-              sizes="(min-width: 1760px) 1760px, 100vw"
-              preload
-              zoom={false}
-            />
+        {siteConfig.showImages ? (
+          <div className="rule-grid">
+            <div className="cell p-0">
+              <ExperimentVisual
+                cover={experiment.cover}
+                id={experiment.id}
+                title={experiment.title}
+                ratio="16 / 9"
+                sizes="(min-width: 1760px) 1760px, 100vw"
+                preload
+                zoom={false}
+              />
+            </div>
           </div>
-        </div>
+        ) : null}
       </header>
 
       {lead ? (

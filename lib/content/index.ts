@@ -4,7 +4,10 @@ import { buildCollection } from '@/lib/content/collection'
 import { parseExperiment } from '@/lib/content/entry'
 import { readEntrySources, readSiteFile, resolveAssetFromDisk } from '@/lib/content/files'
 import type { Collection, Experiment } from '@/lib/content/types'
-import { categoryDefinitions } from '@/lib/site-config'
+import { categoryDefinitions, siteConfig } from '@/lib/site-config'
+
+/** Covers are still validated when parsing; they are only dropped from what the pages see. */
+const withoutCover = (entry: Experiment): Experiment => ({ ...entry, cover: undefined })
 
 function load(): Collection {
   const entries = readEntrySources().map((source) =>
@@ -13,7 +16,7 @@ function load(): Collection {
       resolveAsset: resolveAssetFromDisk,
     }),
   )
-  return buildCollection(entries, {
+  return buildCollection(siteConfig.showImages ? entries : entries.map(withoutCover), {
     // Drafts are previewable locally and never reach a production build.
     includeDrafts: process.env.NODE_ENV !== 'production',
     categories: categoryDefinitions,

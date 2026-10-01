@@ -3,7 +3,9 @@ import { ArrowRight } from '@/components/icons'
 import { ExperimentMeta } from '@/components/experiment-meta'
 import { ExperimentVisual } from '@/components/experiment-visual'
 import { StatusBadge } from '@/components/status-badge'
+import { cn } from '@/lib/cn'
 import type { ExperimentCard } from '@/lib/content/types'
+import { siteConfig } from '@/lib/site-config'
 import { formatDateNumeric } from '@/lib/format'
 
 type TitleTag = 'h2' | 'h3' | 'h4' | 'p'
@@ -48,7 +50,14 @@ export function ExperimentRow({
   if (variant === 'media') {
     return (
       <li className="interactive border-b">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)_minmax(0,15rem)_5.5rem]">
+        <div
+          className={cn(
+            'grid grid-cols-1',
+            siteConfig.showImages
+              ? 'lg:grid-cols-[minmax(0,19rem)_minmax(0,1fr)_minmax(0,15rem)_5.5rem]'
+              : 'lg:grid-cols-[minmax(0,1fr)_minmax(0,15rem)_5.5rem]',
+          )}
+        >
           <ExperimentVisual
             cover={experiment.cover}
             id={experiment.id}
