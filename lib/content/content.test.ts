@@ -9,12 +9,19 @@ import {
   groupArchive,
 } from '@/lib/content/collection'
 import { ContentError } from '@/lib/content/errors'
-import { parseExperiment, normalizeAssetPath, type AssetResolver } from '@/lib/content/entry'
+import {
+  parseExperiment,
+  mediaUrl,
+  normalizeAssetPath,
+  type AssetResolver,
+} from '@/lib/content/entry'
 import { splitFrontmatter, splitSections } from '@/lib/content/parse'
 import { categoryDefinitions } from '@/lib/site-config'
 
 const resolveAsset: AssetResolver = (_folder, path) =>
-  /^(cover|detail-\d+|og)\.png$/.test(path) ? { width: 1600, height: 1000 } : undefined
+  /^(cover|detail-\d+|og)\.png$/.test(path)
+    ? { width: 1600, height: 1000, hash: 'abc12345' }
+    : undefined
 
 const context = { categories: categoryDefinitions, resolveAsset }
 
@@ -87,7 +94,7 @@ describe('frontmatter', () => {
   it('resolves local media and requires alt text for a cover', () => {
     const entry = parse({ cover: '"./cover.png"', coverAlt: '"A dark interface"' })
     expect(entry.cover).toEqual({
-      src: '/media/sample/cover.png',
+      src: '/media/sample/v-abc12345/cover.png',
       width: 1600,
       height: 1000,
       alt: 'A dark interface',
@@ -122,6 +129,14 @@ describe('frontmatter', () => {
 
   it('reports a missing frontmatter block', () => {
     expect(() => splitFrontmatter('just text', 'content/x/index.mdx')).toThrow(/frontmatter/)
+  })
+
+  it('puts a content hash in image URLs so a replaced file can never be served stale', () => {
+    expect(mediaUrl('sample', 'cover.png', 'abc12345')).toBe('/media/sample/v-abc12345/cover.png')
+    expect(mediaUrl('sample', 'images/a b.png', 'abc12345')).toBe(
+      '/media/sample/v-abc12345/images/a%20b.png',
+    )
+    expect(mediaUrl('sample', 'demo.mp4')).toBe('/media/sample/demo.mp4')
   })
 
   it('normalises asset paths', () => {

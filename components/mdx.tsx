@@ -71,7 +71,7 @@ function createMedia(scope: EntryScope | undefined) {
     }
     return (
       <Image
-        src={mediaUrl(scope.slug, relativePath)}
+        src={mediaUrl(scope.slug, relativePath, size.hash)}
         alt={alt}
         width={size.width}
         height={size.height}

@@ -1,4 +1,5 @@
 import 'server-only'
+import { createHash } from 'node:crypto'
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 import { imageSize } from 'image-size'
@@ -44,8 +45,11 @@ export const resolveAssetFromDisk: AssetResolver = (folder, relativePath) => {
   const target = entryFilePath(folder, relativePath)
   if (!target || !existsSync(target) || !statSync(target).isFile()) return undefined
   try {
-    const { width, height } = imageSize(readFileSync(target))
-    if (width && height) return { width, height }
+    const bytes = readFileSync(target)
+    const { width, height } = imageSize(bytes)
+    if (width && height) {
+      return { width, height, hash: createHash('sha1').update(bytes).digest('hex').slice(0, 8) }
+    }
   } catch {
     // fall through to the error below
   }

@@ -69,7 +69,7 @@ function MetaList({ experiment }: { experiment: MetaSource }) {
       value: (
         <ExternalLink
           href={experiment.demoUrl}
-          className="text-accent underline underline-offset-4"
+          className="min-h-11 text-accent underline underline-offset-4 md:min-h-0"
         >
           Live demo
         </ExternalLink>
@@ -82,7 +82,7 @@ function MetaList({ experiment }: { experiment: MetaSource }) {
       value: (
         <ExternalLink
           href={experiment.githubUrl}
-          className="text-accent underline underline-offset-4"
+          className="min-h-11 text-accent underline underline-offset-4 md:min-h-0"
         >
           GitHub
         </ExternalLink>

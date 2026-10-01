@@ -1,7 +1,8 @@
 import { readFile } from 'node:fs/promises'
 import { extname } from 'node:path'
 import { getCollection, getExperiment } from '@/lib/content'
-import { entryFilePath, listEntryFiles } from '@/lib/content/files'
+import { HASH_PREFIX } from '@/lib/content/entry'
+import { entryFilePath, listEntryFiles, resolveAssetFromDisk } from '@/lib/content/files'
 
 /**
  * Serves the files that live next to each experiment's index.mdx, so authors keep media
@@ -26,11 +27,22 @@ const CONTENT_TYPES: Record<string, string> = {
 
 const contentTypeFor = (file: string) => CONTENT_TYPES[extname(file).toLowerCase()]
 
+const IMAGE = /\.(png|jpe?g|webp|avif|gif|svg)$/i
+
+/** Images are addressed by content hash (see mediaUrl); video and captions by plain path. */
 export function generateStaticParams() {
   return getCollection().experiments.flatMap((experiment) =>
     listEntryFiles(experiment.folder)
       .filter((file) => contentTypeFor(file))
-      .map((file) => ({ slug: experiment.slug, path: file.split('/') })),
+      .map((file) => {
+        const hash = IMAGE.test(file)
+          ? resolveAssetFromDisk(experiment.folder, file)?.hash
+          : undefined
+        return {
+          slug: experiment.slug,
+          path: [...(hash ? [`${HASH_PREFIX}${hash}`] : []), ...file.split('/')],
+        }
+      }),
   )
 }
 
@@ -40,7 +52,10 @@ export async function GET(
 ) {
   const { slug, path } = await params
   const experiment = getExperiment(slug)
-  const relativePath = path.join('/')
+  // A leading v-<hash> segment only busts caches; the file is the rest of the path.
+  const relativePath = (
+    path[0]?.startsWith(HASH_PREFIX) && path.length > 1 ? path.slice(1) : path
+  ).join('/')
   const contentType = contentTypeFor(relativePath)
   const target = experiment && contentType ? entryFilePath(experiment.folder, relativePath) : null
 

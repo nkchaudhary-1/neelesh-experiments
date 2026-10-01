@@ -66,9 +66,13 @@ The body uses the sections described in the format document (`## Overview`, `## 
 
 The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib/site-config.ts): AI, UI, UX, Interaction, Motion, Web, Tools, Experimental, Other. A typo in frontmatter fails the build instead of quietly creating a category. To introduce one, add a name, slug and one-line description there. Category pages, counts, filters and the directory are all derived, and only categories with published work appear.
 
-### Seed content
+### The current entries
 
-The eight entries in `content/experiments/` and their images are sample material written from the project brief so the site is fully populated on day one. Replace them with real accounts, or delete the folders, before you point a domain at it.
+`content/experiments/` holds five entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper and this site. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything is marked `building` because none of them has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
+
+The cover and detail images for the first four are schematic diagrams drawn from those documents (view names, hubs, modes, data flow), not screenshots, and their captions say so. Swap in real screenshots whenever you have them: keep the file name and update `coverAlt`. The images for this site's own entry are real screenshots.
+
+OneMoment lives in a private repository, so its entry has no source link and stays high-level. Check that you are comfortable with everything it says before you deploy.
 
 ## Deploy to Vercel
 
@@ -103,7 +107,7 @@ styles/         tokens, base, grid rules, prose
 - **Static everywhere.** Content is read and validated at build time. Every published entry, category and media file is prerendered. Production excludes drafts entirely.
 - **One client footprint.** Browser-only code is limited to the theme toggle, mobile menu, nav highlighting, and the filter/view controls. Everything else renders on the server.
 - **Filters live in the URL.** `/experiments?category=ai&status=live&sort=oldest&view=index` is shareable, reloadable and works with the back button. Unknown values fall back to defaults. The static HTML contains the default list; the explorer takes over on hydration.
-- **Media.** Files beside `index.mdx` are served through `/media/<slug>/<file>` and rendered with `next/image`, with real dimensions read at build time. Only the main featured image and each detail cover are preloaded.
+- **Media.** Files beside `index.mdx` are served through `/media/<slug>/…` and rendered with `next/image`, with real dimensions read at build time. Image URLs carry a short content hash (`/media/<slug>/v-<hash>/<file>`), so replacing `cover.png` under the same name always shows the new picture instead of a cached one. Only the main featured image and each detail cover are preloaded.
 - **Open Graph.** `ogImage` if set, otherwise a generated type-led card at `/og/<slug>` (site default at `/og/default.png`).
 
 ### Design system

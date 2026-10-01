@@ -12,15 +12,26 @@ export interface EntrySource {
   source: string
 }
 
-/** Returns the pixel size of a file inside an entry folder, or undefined when it does not exist. */
+/**
+ * Returns the pixel size and a short content hash of an image inside an entry folder, or
+ * undefined when it does not exist.
+ */
 export type AssetResolver = (
   folder: string,
   relativePath: string,
-) => { width: number; height: number } | undefined
+) => { width: number; height: number; hash: string } | undefined
 
-export function mediaUrl(slug: string, relativePath: string): string {
+/** Prefix that marks the content-hash segment of a media URL. */
+export const HASH_PREFIX = 'v-'
+
+/**
+ * URL of a file served by /media. With a hash, the URL changes whenever the file's bytes do, so
+ * replacing cover.png under the same name can never be answered from a stale image cache.
+ */
+export function mediaUrl(slug: string, relativePath: string, hash?: string): string {
   const encoded = relativePath.split('/').map(encodeURIComponent).join('/')
-  return `/media/${encodeURIComponent(slug)}/${encoded}`
+  const version = hash ? `${HASH_PREFIX}${hash}/` : ''
+  return `/media/${encodeURIComponent(slug)}/${version}${encoded}`
 }
 
 /** "./cover.png" → "cover.png". Anything that could escape the entry folder is rejected. */
@@ -79,7 +90,11 @@ export function parseExperiment(entry: EntrySource, context: ParseContext): Expe
       problems.push(`${field}: file "${relativePath}" was not found in ${entry.folder}/`)
       return undefined
     }
-    return { src: mediaUrl(fm.slug, relativePath), ...size }
+    return {
+      src: mediaUrl(fm.slug, relativePath, size.hash),
+      width: size.width,
+      height: size.height,
+    }
   }
 
   let cover: MediaAsset | undefined
