@@ -70,7 +70,7 @@ The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib
 
 `content/experiments/` holds five entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper and this site. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything is marked `building` because none of them has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
 
-The cover and detail images for the first four are schematic diagrams drawn from those documents (view names, hubs, modes, data flow), not screenshots, and their captions say so. Swap in real screenshots whenever you have them: keep the file name and update `coverAlt`. The images for this site's own entry are real screenshots.
+The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. Swap in real screenshots whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
 
 OneMoment lives in a private repository, so its entry has no source link and stays high-level. Check that you are comfortable with everything it says before you deploy.
 

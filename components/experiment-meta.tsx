@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ExternalLink } from '@/components/external-link'
 import { StatusBadge } from '@/components/status-badge'
 import { cn } from '@/lib/cn'
+import { demoLabel } from '@/lib/links'
 import type { Experiment, ExperimentCard } from '@/lib/content/types'
 import { formatDate } from '@/lib/format'
 
@@ -71,7 +72,7 @@ function MetaList({ experiment }: { experiment: MetaSource }) {
           href={experiment.demoUrl}
           className="min-h-11 text-accent underline underline-offset-4 md:min-h-0"
         >
-          Live demo
+          {demoLabel(experiment.demoUrl)}
         </ExternalLink>
       ),
     })
