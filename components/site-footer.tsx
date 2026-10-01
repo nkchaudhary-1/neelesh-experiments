@@ -46,8 +46,18 @@ export function SiteFooter() {
           <div className="cell md:col-span-3">
             <ul>
               <li>
+                <ExternalLink href={siteConfig.links.linkedin} className={linkClass}>
+                  LinkedIn
+                </ExternalLink>
+              </li>
+              <li>
                 <ExternalLink href={siteConfig.links.github} className={linkClass}>
                   GitHub
+                </ExternalLink>
+              </li>
+              <li>
+                <ExternalLink href={siteConfig.links.portfolio} className={linkClass}>
+                  Portfolio
                 </ExternalLink>
               </li>
               {siteConfig.links.email ? (

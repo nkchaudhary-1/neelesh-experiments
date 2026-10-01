@@ -173,7 +173,9 @@
 
   @media (min-width: 64rem) {
     .row-index {
-      grid-template-columns: 4.5rem minmax(0, 4fr) minmax(0, 3fr) 9.5rem 8rem 5.5rem;
+      grid-template-columns: 4.5rem minmax(0, 4fr) minmax(0, 3fr) 9.5rem 8rem calc(
+          var(--pad) * 2 + 4rem
+        );
       grid-template-areas: 'id title cats status date action';
       gap: 0;
       padding: 0;
@@ -195,6 +197,12 @@
     .row-index > .a-status,
     .row-index > .a-action {
       justify-self: stretch;
+    }
+
+    /* Sized for the label plus the cell padding, and right-aligned so the arrow lines up
+       with the "Browse all" link in the section label above. */
+    .row-index > .a-action {
+      justify-content: flex-end;
     }
 
     .row-index--head > * {
