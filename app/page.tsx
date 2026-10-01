@@ -80,7 +80,7 @@ export default function HomePage() {
                 <div className="rule-grid">
                   <div
                     className={cn(
-                      'cell order-2 flex flex-col justify-between gap-12 lg:order-1',
+                      'cell order-2 flex flex-col justify-between gap-12 py-8 md:py-10 lg:order-1',
                       siteConfig.showImages ? 'lg:col-span-5' : 'lg:col-span-12',
                     )}
                   >

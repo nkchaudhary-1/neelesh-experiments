@@ -16,7 +16,7 @@ export function SectionLabel({
     <>
       <DoubleRule />
       <div className="rule-grid">
-        <div className="cell flex items-center justify-between gap-4 py-3 md:py-3.5">
+        <div className="cell flex items-center justify-between gap-4 py-5 md:py-6">
           <h2 id={id} className="label text-fg">
             <span aria-hidden className="text-fg-muted">
               /{' '}
