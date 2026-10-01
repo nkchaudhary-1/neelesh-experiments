@@ -40,14 +40,14 @@ export default function HomePage() {
       <section aria-labelledby="home-title">
         <StatStrip stats={stats} />
         <div className="rule-grid">
-          <div className="cell pt-12 pb-10 md:pt-20 md:pb-16 lg:col-span-8">
+          <div className="cell pt-4 pb-10 md:pb-16 lg:col-span-8">
             <p className="label text-fg-muted">{siteConfig.name}</p>
             <h1 id="home-title" className="mt-8 text-display md:mt-14">
               <span className="block">Things I’m</span>
               <span className="block">experimenting with</span>
             </h1>
           </div>
-          <div className="cell flex flex-col justify-between gap-10 pt-12 pb-6 md:pt-20 lg:col-span-4">
+          <div className="cell flex flex-col justify-between gap-10 pt-4 pb-6 lg:col-span-4">
             <p className="max-w-[34ch] text-lead">{siteConfig.tagline}</p>
             <div className="flex flex-col items-start">
               <Link

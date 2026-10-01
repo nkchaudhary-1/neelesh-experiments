@@ -6,7 +6,7 @@ import { pad } from '@/lib/format'
 
 function Stat({ label, value, className }: { label: string; value: number; className?: string }) {
   return (
-    <div className={cn('cell col-span-6 py-6 md:py-8 md:col-span-3 lg:col-span-2', className)}>
+    <div className={cn('cell col-span-6 pt-4 pb-3 md:col-span-3 lg:col-span-2', className)}>
       <p className="label text-fg-muted">{label}</p>
       <p className="mt-2 font-mono text-section tabular-nums">{pad(value)}</p>
     </div>
@@ -18,7 +18,7 @@ export function StatStrip({ stats }: { stats: CollectionStats }) {
   return (
     <div>
       <div className="rule-grid">
-        <div className="cell py-6 md:py-8 lg:col-span-4">
+        <div className="cell flex flex-col justify-between pt-4 pb-3 lg:col-span-4">
           <p className="label text-fg-muted">Currently exploring</p>
           <p className="label mt-2 text-fg">{siteConfig.exploring.join(' / ')}</p>
         </div>
