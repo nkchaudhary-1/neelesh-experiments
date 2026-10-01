@@ -12,7 +12,7 @@ export default function NotFound() {
       <div className="rule-grid">
         <div className="cell flex flex-col items-start gap-5 py-20 md:py-28">
           <p className="label text-fg-muted">404</p>
-          <h1 className="text-display uppercase">Not in the archive</h1>
+          <h1 className="text-display">Not in the archive</h1>
           <p className="max-w-[52ch] text-lead text-fg-muted">
             That entry does not exist, or it has not been published yet. It may have moved, or the
             link may be mistyped.

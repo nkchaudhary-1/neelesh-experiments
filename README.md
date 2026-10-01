@@ -115,9 +115,9 @@ styles/         tokens, base, grid rules, prose
 
 ### Design system
 
-- **Grid.** Rules are 1px borders on the cells themselves (`.cell` inside `.rule-grid`, see `styles/grid.css`). The grid is 12 columns from tablet up with asymmetric spans, one column on mobile, and a last row that always closes. Tiles use subgrid so images and text align across a row.
+- **Grid.** Rules are 1px borders on the cells themselves (`.cell` inside `.rule-grid`, see `styles/grid.css`). The grid is 12 columns from tablet up with asymmetric spans, one column on mobile, and a last row that always closes. Tiles use subgrid so images and text align across a row. Sections and the footer are separated by a double rule (`DoubleRule`, `.rule-double`).
 - **Tokens.** Colours are semantic CSS variables (`--color-bg`, `--color-fg-muted`, `--color-border`, …) defined once in `styles/tokens.css`; dark is the default and light is redefined on `[data-theme='light']`. Components never use raw colours.
-- **Type.** Inter Tight for display and text, Geist Mono for metadata, both self-hosted (OFL, see `app/fonts/LICENSE.txt`). The scale is fluid and defined in `styles/tokens.css`.
+- **Type.** Inter Tight for display and text, Geist Mono for metadata, both self-hosted (OFL, see `app/fonts/LICENSE.txt`). The scale is fluid and defined in `styles/tokens.css`. Headings are sentence case; nothing is set in all caps except small mono labels.
 - **Icons.** Arrows and status symbols are inline SVG, not font glyphs: they are missing from the Latin font subsets and a fallback font would render them differently on every device.
 - **Motion.** CSS only, short and functional. Reduced motion removes the non-essential animation.
 

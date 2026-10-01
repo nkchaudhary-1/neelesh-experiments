@@ -10,7 +10,7 @@ export function CategoryDirectory({ categories }: { categories: CategorySummary[
       {categories.map((category) => (
         <li key={category.slug} className="interactive border-b">
           <div className="grid lg:grid-cols-[minmax(0,4fr)_minmax(0,4fr)_minmax(0,3fr)_5rem]">
-            <h2 className="p-[var(--pad)] pb-2 text-section uppercase lg:pb-[var(--pad)]">
+            <h2 className="p-[var(--pad)] pb-2 text-section lg:pb-[var(--pad)]">
               <Link href={`/categories/${category.slug}`} className="stretched">
                 {category.name}
               </Link>

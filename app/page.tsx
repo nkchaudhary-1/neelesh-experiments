@@ -24,11 +24,13 @@ export default function HomePage() {
   const { experiments, categories, stats } = getCollection()
 
   const featured = experiments.find((experiment) => experiment.featured)
-  const latest = experiments.filter((experiment) => experiment.slug !== featured?.slug).slice(0, 5)
+  // One sequence, newest first, with no gaps. The featured entry stays in it: leaving it out
+  // made the IDs read 005, 004, 002, 001 under a separate 003.
+  const latest = experiments.slice(0, 5)
   const tiles = latest.slice(0, 2)
   const rows = latest.slice(2)
   const tileSpans = gridSpans(tiles.length)
-  const indexPreview = [...experiments].sort((a, b) => a.id.localeCompare(b.id)).slice(0, 8)
+  const indexPreview = experiments.slice(0, 8)
   const categorySpans = rowSpans(categories.length, 4)
   const archivePreview = groupArchive(experiments.slice(0, 6))
   const aboutIntro = getAboutSource().split(/\n\s*\n/)[0] ?? ''
@@ -40,7 +42,7 @@ export default function HomePage() {
         <div className="rule-grid">
           <div className="cell pt-8 pb-10 md:pt-14 md:pb-16 lg:col-span-8">
             <p className="label text-fg-muted">{siteConfig.name}</p>
-            <h1 id="home-title" className="mt-8 text-display uppercase md:mt-14">
+            <h1 id="home-title" className="mt-8 text-display md:mt-14">
               <span className="block">Things I’m</span>
               <span className="block">experimenting with</span>
             </h1>
@@ -159,7 +161,7 @@ export default function HomePage() {
           <section aria-labelledby="index-heading">
             <SectionLabel
               id="index-heading"
-              action={{ href: '/experiments?view=index&sort=oldest', label: 'Browse all' }}
+              action={{ href: '/experiments?view=index', label: 'Browse all' }}
             >
               Index
             </SectionLabel>
@@ -184,7 +186,7 @@ export default function HomePage() {
                   key={category.slug}
                   className={`cell interactive flex flex-col gap-8 md:col-span-6 ${LG_COL_SPAN[categorySpans[index] ?? 4]}`}
                 >
-                  <h3 className="text-title uppercase">
+                  <h3 className="text-title">
                     <Link href={`/categories/${category.slug}`} className="stretched">
                       {category.name}
                     </Link>

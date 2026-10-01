@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { DoubleRule } from '@/components/double-rule'
 import { ArrowUp } from '@/components/icons'
 import { ExternalLink } from '@/components/external-link'
 import { siteConfig } from '@/lib/site-config'
@@ -20,6 +21,7 @@ export function SiteFooter() {
   return (
     <footer>
       <div className="frame">
+        <DoubleRule />
         <div className="rule-grid">
           <div className="cell md:col-span-6">
             <p className="label text-fg">{siteConfig.name}</p>

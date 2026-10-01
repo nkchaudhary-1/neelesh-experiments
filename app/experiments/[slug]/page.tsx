@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight } from '@/components/icons'
 import { ExperimentIndexHead, ExperimentRow } from '@/components/experiment-row'
+import { DoubleRule } from '@/components/double-rule'
 import { ExperimentMeta } from '@/components/experiment-meta'
 import { ExperimentVisual } from '@/components/experiment-visual'
 import { JsonLd } from '@/components/json-ld'
@@ -129,6 +130,7 @@ export default async function ExperimentPage({ params }: Props) {
           </div>
         ) : null}
       </header>
+      <DoubleRule />
 
       {lead ? (
         <div className="rule-grid">
@@ -169,44 +171,47 @@ export default async function ExperimentPage({ params }: Props) {
       ))}
 
       {previous || next ? (
-        <nav aria-label="More experiments" className="rule-grid">
-          {previous ? (
-            <div className="cell interactive md:col-span-6">
-              <p className="label flex items-center gap-2 text-fg-muted">
-                <ArrowLeft className="nudge" />
-                Previous
-              </p>
-              <p className="label mt-4 text-fg-muted">
-                {previous.id} · {formatDate(previous.date)}
-              </p>
-              <Link
-                href={`/experiments/${previous.slug}`}
-                className="stretched mt-2 inline-block text-title"
+        <>
+          <DoubleRule />
+          <nav aria-label="More experiments" className="rule-grid">
+            {previous ? (
+              <div className="cell interactive md:col-span-6">
+                <p className="label flex items-center gap-2 text-fg-muted">
+                  <ArrowLeft className="nudge" />
+                  Previous
+                </p>
+                <p className="label mt-4 text-fg-muted">
+                  {previous.id} · {formatDate(previous.date)}
+                </p>
+                <Link
+                  href={`/experiments/${previous.slug}`}
+                  className="stretched mt-2 inline-block text-title"
+                >
+                  {previous.title}
+                </Link>
+              </div>
+            ) : null}
+            {next ? (
+              <div
+                className={`cell interactive md:col-span-6 ${previous ? '' : 'md:col-start-7'} md:text-right`}
               >
-                {previous.title}
-              </Link>
-            </div>
-          ) : null}
-          {next ? (
-            <div
-              className={`cell interactive md:col-span-6 ${previous ? '' : 'md:col-start-7'} md:text-right`}
-            >
-              <p className="label flex items-center gap-2 text-fg-muted md:justify-end">
-                Next
-                <ArrowRight className="nudge" />
-              </p>
-              <p className="label mt-4 text-fg-muted">
-                {next.id} · {formatDate(next.date)}
-              </p>
-              <Link
-                href={`/experiments/${next.slug}`}
-                className="stretched mt-2 inline-block text-title"
-              >
-                {next.title}
-              </Link>
-            </div>
-          ) : null}
-        </nav>
+                <p className="label flex items-center gap-2 text-fg-muted md:justify-end">
+                  Next
+                  <ArrowRight className="nudge" />
+                </p>
+                <p className="label mt-4 text-fg-muted">
+                  {next.id} · {formatDate(next.date)}
+                </p>
+                <Link
+                  href={`/experiments/${next.slug}`}
+                  className="stretched mt-2 inline-block text-title"
+                >
+                  {next.title}
+                </Link>
+              </div>
+            ) : null}
+          </nav>
+        </>
       ) : null}
 
       {related ? (

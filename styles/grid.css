@@ -202,3 +202,13 @@
     }
   }
 }
+
+/* Double rule: a major division, as on a technical drawing. Overlaps the hairline above it. */
+@layer components {
+  .rule-double {
+    height: 6px;
+    margin-top: -1px;
+    border-top: 1px solid var(--color-border-strong);
+    border-bottom: 1px solid var(--color-border-strong);
+  }
+}

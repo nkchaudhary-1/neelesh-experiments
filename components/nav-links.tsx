@@ -26,7 +26,7 @@ export function NavLinks({
             className={cn(
               variant === 'bar'
                 ? 'label relative flex h-full items-center border-r px-4 text-fg-muted hover:bg-surface hover:text-fg focus-visible:bg-surface focus-visible:text-fg aria-[current=page]:text-accent aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-0 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-accent lg:px-6'
-                : 'flex min-h-16 items-baseline gap-4 border-b px-[var(--pad)] py-4 text-section uppercase hover:bg-surface focus-visible:bg-surface aria-[current=page]:text-accent',
+                : 'flex min-h-16 items-baseline gap-4 border-b px-[var(--pad)] py-4 text-section hover:bg-surface focus-visible:bg-surface aria-[current=page]:text-accent',
             )}
           >
             {variant === 'menu' ? (
