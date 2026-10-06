@@ -89,6 +89,7 @@ The URL drives `metadataBase`, canonical URLs, Open Graph, `sitemap.xml`, `robot
 
 Everything that is not content lives in [`lib/site-config.ts`](lib/site-config.ts): site name and description, the “currently exploring” list, GitHub, LinkedIn, portfolio and email links, the category list, and the theme default.
 
+- **Analytics.** `analytics` adds Vercel Web Analytics (page views, referrers, countries; no cookies). It is `false` for now. In Vercel, open the project, then Analytics, and click Enable; after that set `analytics: true` and push. Turning it on before enabling it in Vercel logs a failed request for `/_vercel/insights/script.js` on every page.
 - **Images.** `showImages` hides or shows every entry image site-wide. It is `false` for now.
 - **Email.** `links.email` is empty, so no email link is shown anywhere. Set it to show one in the footer and on the About page.
 - **Theme default.** First visits open in dark. Set `theme.followSystem` to `true` to follow `prefers-color-scheme` instead (dark stays the final fallback). An explicit choice always wins.
@@ -108,7 +109,7 @@ styles/         tokens, base, grid rules, prose
 ```
 
 - **Static everywhere.** Content is read and validated at build time. Every published entry, category and media file is prerendered. Production excludes drafts entirely.
-- **One client footprint.** Browser-only code is limited to the theme toggle, mobile menu, nav highlighting, and the filter/view controls. Everything else renders on the server.
+- **One client footprint.** Browser-only code is limited to the theme toggle, mobile menu, nav highlighting, and the filter/view controls, plus the Vercel Analytics script when `analytics` is on. Everything else renders on the server.
 - **Filters live in the URL.** `/experiments?category=ai&status=live&sort=oldest&view=index` is shareable, reloadable and works with the back button. Unknown values fall back to defaults. The static HTML contains the default list; the explorer takes over on hydration.
 - **Media.** Files beside `index.mdx` are served through `/media/<slug>/…` and rendered with `next/image`, with real dimensions read at build time. Image URLs carry a short content hash (`/media/<slug>/v-<hash>/<file>`), so replacing `cover.png` under the same name always shows the new picture instead of a cached one. Only the main featured image and each detail cover are preloaded.
 - **Open Graph.** `ogImage` if set, otherwise a generated type-led card at `/og/<slug>` (site default at `/og/default.png`).

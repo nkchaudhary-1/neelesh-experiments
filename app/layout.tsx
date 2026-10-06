@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { JsonLd } from '@/components/json-ld'
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <SiteFooter />
         <JsonLd data={websiteJsonLd()} />
+        {siteConfig.analytics ? <Analytics /> : null}
       </body>
     </html>
   )

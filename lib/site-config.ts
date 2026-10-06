@@ -21,6 +21,12 @@ export const siteConfig = {
     email: '',
   },
   /**
+   * Vercel Web Analytics (cookie-free page views, referrers, countries). Turn it on in the Vercel
+   * dashboard first (project, Analytics, Enable), then set this to true. While it is on but not
+   * enabled in Vercel, every page logs a failed request for /_vercel/insights/script.js.
+   */
+  analytics: false,
+  /**
    * false: no entry images anywhere. Covers become type-led plates, in-article images and
    * their captions are left out, and no image file is loaded.
    * true: show the cover and detail images that live in each entry folder.
