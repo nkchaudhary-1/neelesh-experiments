@@ -70,6 +70,8 @@ export interface ArchiveMonth {
 export interface ArchiveYear {
   year: number
   months: ArchiveMonth[]
+  /** Entries in the year when `months` is a truncated preview; the count shown uses it. */
+  total?: number
 }
 
 export interface Collection {

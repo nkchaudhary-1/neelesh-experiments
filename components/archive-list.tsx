@@ -2,6 +2,9 @@ import { ExperimentRow } from '@/components/experiment-row'
 import { pad, monthLabel, plural } from '@/lib/format'
 import type { ArchiveYear } from '@/lib/content/types'
 
+const count = (year: ArchiveYear) =>
+  year.total ?? year.months.reduce((total, month) => total + month.entries.length, 0)
+
 /**
  * Publication-style archive: a large year, then months with a sticky label beside a
  * compact run of entries. Heading levels are passed in so it fits under h1 or h2.
@@ -25,12 +28,7 @@ export function ArchiveList({
                 {year.year}
               </Year>
               <p className="label text-fg-muted">
-                {pad(year.months.reduce((total, month) => total + month.entries.length, 0))}{' '}
-                {plural(
-                  year.months.reduce((total, month) => total + month.entries.length, 0),
-                  'Entry',
-                  'Entries',
-                )}
+                {pad(count(year))} {plural(count(year), 'Entry', 'Entries')}
               </p>
             </div>
           </div>

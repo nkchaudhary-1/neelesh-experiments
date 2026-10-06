@@ -68,11 +68,11 @@ The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib
 
 ### The current entries
 
-`content/experiments/` holds five entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper and this site. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything is marked `building` because none of them has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
+`content/experiments/` holds seven entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper, this site, RDL Theme and Spinblade Arena. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything is marked `building` because none of them has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
 
 **Images are currently switched off** with `showImages: false` in `lib/site-config.ts`: no cover or article image is shown or loaded, tiles become text-only and the featured entry spans the full width. Set it to `true` to bring them all back; nothing is deleted from the entry folders.
 
-The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. Swap in real screenshots whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
+The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. RDL Theme and Spinblade Arena use real images instead: the first is the repository's own reference renders, the second is captured from the running game. Swap in real screenshots for the others whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
 
 OneMoment lives in a private repository, so its entry has no source link and stays high-level. Check that you are comfortable with everything it says before you deploy.
 

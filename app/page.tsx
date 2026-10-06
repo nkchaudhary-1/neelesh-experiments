@@ -32,7 +32,16 @@ export default function HomePage() {
   const tileSpans = gridSpans(tiles.length)
   const indexPreview = experiments.slice(0, 8)
   const categorySpans = rowSpans(categories.length, 4)
-  const archivePreview = groupArchive(experiments.slice(0, 6))
+  const archiveTotals = new Map(
+    groupArchive(experiments).map((group) => [
+      group.year,
+      group.months.reduce((total, month) => total + month.entries.length, 0),
+    ]),
+  )
+  const archivePreview = groupArchive(experiments.slice(0, 8)).map((group) => ({
+    ...group,
+    total: archiveTotals.get(group.year),
+  }))
   const aboutIntro = getAboutSource().split(/\n\s*\n/)[0] ?? ''
 
   return (

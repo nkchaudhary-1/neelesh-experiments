@@ -1,0 +1,80 @@
+---
+id: "006"
+title: "RDL Theme"
+slug: "rdl-theme"
+date: "2026-10-01"
+status: "building"
+categories:
+  - "UI"
+  - "Tools"
+  - "AI"
+tags:
+  - "Design system"
+  - "Claude skill"
+  - "Tokens"
+  - "UI audit"
+description: "A Claude Code skill and design system that turns a study of 220 RonDesignLab shots into tokens, layout rules and a UI audit for web and SwiftUI."
+cover: "./cover.png"
+coverAlt: "Three angled phone mockups of a fictional gold app: a light home screen with a portfolio value and price chart, a dark buy screen with a tick ruler and slide-to-buy control, and a light SIP screen with a month grid."
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/RDL-Theme"
+stack:
+  - "Claude Code skills"
+  - "CSS tokens"
+  - "Tailwind"
+  - "SwiftUI"
+  - "Playwright"
+updated: ""
+draft: false
+ogImage: ""
+---
+
+# RDL Theme
+
+RDL Theme is a Claude Code skill and design system built from a study of 220 shots by RonDesignLab: frosted glass, huge light numerals, orbs and pills, hairline instruments. I wanted to see whether a visual style could be written down precisely enough that a model builds consistent screens in it without being told how each time.
+
+## Overview
+
+The skill turns the study into things a build can use: calibrated tokens for CSS, Tailwind and SwiftUI, a spacing and layout system, exact component anatomy, a usage rulebook and screen patterns by domain. There are two looks, glass by default and the original flat v1, eleven accent colours, and light and dark modes.
+
+You ask for a screen in plain language, for example the SIP screen of a gold app in SwiftUI with a gold accent, and the skill supplies the rules, the tokens and a QA checklist.
+
+## The idea
+
+The first versions captured the look: glass over photos and soft gradients, large light numerals with small muted units, one accent used sparingly. Version 3 had a different goal. I wanted screens that come out consistent, minimal and well spaced by construction, not by checking each one by eye.
+
+## What I was testing
+
+- Whether two passes over the same 220 shots, one for style and one for structure, produce rules (a 4pt spacing ladder, a screen skeleton, a 12-column bento, a control-height ladder) and not only a mood.
+- Whether corner radius can be a rule: inner radius equals outer radius minus the gap, with a strict and a soft way of nesting deeper.
+- Whether an audit script can fail a page on the things I would otherwise catch by eye: off-scale type, off-ladder spacing, wrong radii, mixed control heights and text contrast measured on the rendered pixels.
+
+## Process
+
+The first commit on 27 September was a flat fintech look with tokens and reference screens. The same day, version 2 added the glass language from the moodboard study. Version 3 on 1 October added the structural pass, with per-frame notes on spacing, radius and composition, and pixel-sampled colours.
+
+Tokens live in one `tokens.json`. A script generates the CSS, the Tailwind preset and the SwiftUI constants from it, so the three cannot drift apart. The worked examples use screens from the gold investment app I am designing, such as the SIP sheet and the lease card.
+
+![Three phone screens of a fictional gold app in the glass style: home, buy gold and a gold SIP](./detail-01.png)
+
+*Caption: The glass style on mobile, with the home, buy and SIP screens built from the same tokens. The brand and data are fictional.*
+
+Later versions added the nested-radius method from a design article, then packaged everything as a single `RDL/SKILL.md` that can be uploaded as a custom skill.
+
+## Result
+
+The repository is public and at version 3.3.0. It installs as a Claude Code plugin, as a folder skill, or as one 330 KB file with every source file embedded. The audit script and the glass reference templates, a mobile set and a dashboard, are included.
+
+## Learnings
+
+- The layout values are approximate. They are measured from mostly angled or depth-of-field shots, so I treat them as plus or minus 2pt and snap them to the 4pt grid. The colours are pixel-sampled and more reliable.
+- Removing the minimum-radius clamp mattered. Clamping broke concentric corners, so when the inner radius gets small the fix is to reduce the gap, not to bend the rule.
+- The SwiftUI files were written without a compiler. They need one build in Xcode before I would trust them, and the audit only covers HTML.
+- The flat v1 templates keep their original inline values and are not audit-clean. The glass templates are the reference.
+
+## Notes
+
+This is an independent style study. It is not affiliated with or endorsed by RonDesignLab, the repository contains none of their artwork, and the reference screens are original compositions with fictional data.
+
+The first commit was on 27 September. The date on this entry is the day version 3 landed.
