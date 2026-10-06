@@ -50,10 +50,9 @@ export default function HomePage() {
         <StatStrip stats={stats} />
         <div className="rule-grid">
           <div className="cell pt-4 pb-10 md:pb-16 lg:col-span-8">
-            <p className="label text-fg-muted">{siteConfig.name}</p>
-            <h1 id="home-title" className="mt-8 text-display md:mt-14">
-              <span className="block">Things I’m</span>
-              <span className="block">experimenting with</span>
+            <p className="label text-fg-muted">{siteConfig.kicker}</p>
+            <h1 id="home-title" className="mt-8 text-display text-balance md:mt-14">
+              {siteConfig.name}
             </h1>
           </div>
           <div className="cell flex flex-col justify-between gap-10 pt-4 pb-6 lg:col-span-4">

@@ -9,8 +9,8 @@ export const dynamic = 'force-static'
 export async function GET() {
   const { stats } = getCollection()
   return renderOgCard({
-    eyebrow: siteConfig.name,
-    title: 'Things I’m experimenting with',
+    eyebrow: siteConfig.kicker,
+    title: siteConfig.name,
     footerLeft: 'A public archive',
     footerRight: `${pad(stats.total)} experiments · ${pad(stats.live)} live`,
   })

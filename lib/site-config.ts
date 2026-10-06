@@ -9,7 +9,10 @@ export const siteConfig = {
   shortName: 'After office hours',
   description:
     'A public archive of prototypes, interfaces, AI experiments, motion studies and unfinished investigations by Neelesh.',
-  tagline: 'A public archive of things I’m building, testing, breaking and learning from.',
+  /** Small label above the home heading and on the share card. */
+  kicker: 'Experiment archive',
+  /** The line under the home heading. */
+  tagline: 'Interfaces, AI and interaction experiments I build once the day job is done.',
   author: 'Neelesh',
   /** Shown as CURRENTLY EXPLORING on the home page. */
   exploring: ['AI', 'Interaction', 'Motion', 'Web'],
