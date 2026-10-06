@@ -13,6 +13,8 @@ export const siteConfig = {
   kicker: 'Experiment archive',
   /** The line under the home heading. */
   tagline: 'Interfaces, AI and interaction experiments I build once the day job is done.',
+  /** A second, quieter line under the tagline: how the work gets made. */
+  method: 'One loop: design it, build it with AI, write down what happened.',
   author: 'Neelesh',
   /** Shown as CURRENTLY EXPLORING on the home page. */
   exploring: ['AI', 'Interaction', 'Motion', 'Web'],

@@ -56,7 +56,10 @@ export default function HomePage() {
             </h1>
           </div>
           <div className="cell flex flex-col justify-between gap-10 pt-4 pb-6 lg:col-span-4">
-            <p className="max-w-[34ch] text-lead">{siteConfig.tagline}</p>
+            <div className="flex flex-col gap-3">
+              <p className="max-w-[34ch] text-lead">{siteConfig.tagline}</p>
+              <p className="max-w-[40ch] text-balance text-fg-muted">{siteConfig.method}</p>
+            </div>
             <div className="flex flex-col items-start">
               <Link
                 href="/experiments?view=index"
