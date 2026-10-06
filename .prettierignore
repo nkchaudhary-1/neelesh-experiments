@@ -5,3 +5,4 @@ package-lock.json
 next-env.d.ts
 content/**/*.mdx
 docs/content-format.md
+docs/monthly-audit.md

@@ -1,0 +1,143 @@
+{
+  "reviewed": "2026-10-06",
+  "baseline": true,
+  "previousRecord": "Site entries as published on 2026-10-01 (no earlier audit exists)",
+  "limits": [
+    "Outbound access to live sites (vercel.app, chromewebstore, github.io) was blocked in the review environment, so no live URL was fetched. 'liveUrlVerified' is false everywhere; the only live evidence is Vercel's Production deployment status on GitHub.",
+    "Repository 'archived' flags were not readable for the five public repositories other than this one. Activity (last commit) was used instead.",
+    "Framer, Figma files and any project outside GitHub, Vercel and Webflow could not be listed."
+  ],
+  "projects": [
+    {
+      "slug": "inspira-2",
+      "name": "Inspira 2.0",
+      "repo": "https://github.com/nkchaudhary-1/Inspira",
+      "visibility": "public",
+      "liveUrl": "https://chromewebstore.google.com/detail/inspira-%E2%80%94-your-day-every/ohdnckjldimefbkmmpjmmcahiiapemff",
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-09-26",
+      "lastCommit": "2026-09-29",
+      "headSha": "e2bf9e6",
+      "version": "2.0.0",
+      "classification": "No Change",
+      "priority": "Low",
+      "notes": "No commits since the entry was written. Web Store publication unverified."
+    },
+    {
+      "slug": "onemoment",
+      "name": "OneMoment",
+      "repo": null,
+      "visibility": "private",
+      "liveUrl": null,
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-08-26",
+      "lastCommit": "2026-09-27",
+      "headSha": "a56182d",
+      "version": null,
+      "classification": "No Change",
+      "priority": "Low",
+      "notes": "Private repository. Entry date (2026-09-27) is the last push; history starts 2026-08-26 with the main build from 2026-09-20. Date needs review."
+    },
+    {
+      "slug": "ai-brain",
+      "name": "AI Brain",
+      "repo": "https://github.com/nkchaudhary-1/Claude-AI-Brain",
+      "visibility": "public",
+      "liveUrl": null,
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-09-29",
+      "lastCommit": "2026-09-30",
+      "headSha": "c71f120",
+      "version": "v0.6 (from commit messages)",
+      "classification": "No Change",
+      "priority": "Low",
+      "notes": "Repository is set up for a hosted Vercel and Supabase app, but no confirmed production URL exists. https://my-ai-brain.vercel.app appears only as an example in the docs. Needs Review."
+    },
+    {
+      "slug": "jarvis-wallpaper",
+      "name": "Jarvis Wallpaper",
+      "repo": "https://github.com/nkchaudhary-1/Ideas",
+      "visibility": "public",
+      "liveUrl": null,
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-09-30",
+      "lastCommit": "2026-09-30",
+      "headSha": "c6e7b7f",
+      "version": null,
+      "classification": "No Change",
+      "priority": "Low",
+      "notes": "Lives in the jarvis-wallpaper folder of a repository named Ideas. No release or hosted version found."
+    },
+    {
+      "slug": "after-office-hours",
+      "name": "After office hours",
+      "repo": "https://github.com/nkchaudhary-1/neelesh-experiments",
+      "visibility": "public",
+      "liveUrl": "https://neelesh-experiments.vercel.app",
+      "liveUrlVerified": false,
+      "siteStatus": "live",
+      "firstCommit": "2026-09-30",
+      "lastCommit": "2026-10-06",
+      "headSha": "d1a7739",
+      "version": null,
+      "classification": "Major Update",
+      "priority": "High",
+      "notes": "Production deployments succeeded on Vercel through the latest commit. URL is the repository homepage field and could not be fetched from the review environment. Previously named NEEL / EXPERIMENTS."
+    },
+    {
+      "slug": "rdl-theme",
+      "name": "RDL Theme",
+      "repo": "https://github.com/nkchaudhary-1/RDL-Theme",
+      "visibility": "public",
+      "liveUrl": null,
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-09-27",
+      "lastCommit": "2026-10-01",
+      "headSha": "0cc64f3",
+      "version": "3.3.0",
+      "classification": "New Experiment",
+      "priority": "High",
+      "notes": "Entry dated 2026-10-01 (the v3 release); first commit was 2026-09-27."
+    },
+    {
+      "slug": "spinblade-arena",
+      "name": "Spinblade Arena",
+      "repo": "https://github.com/nkchaudhary-1/Game-Design",
+      "visibility": "public",
+      "liveUrl": null,
+      "liveUrlVerified": false,
+      "siteStatus": "building",
+      "firstCommit": "2026-10-06",
+      "lastCommit": "2026-10-06",
+      "headSha": "8f3367d",
+      "version": null,
+      "classification": "New Experiment",
+      "priority": "High",
+      "notes": "Single-page game, playable by opening index.html. No hosted version found."
+    }
+  ],
+  "otherSources": [
+    {
+      "source": "Webflow",
+      "item": "One site, created 2026-09-19, never published, no custom domain",
+      "classification": "Needs Review"
+    },
+    { "source": "Higgsfield websites", "item": "None", "classification": "No Change" },
+    {
+      "source": "Google Drive",
+      "item": "No matching files since 2026-09-01",
+      "classification": "No Change"
+    },
+    { "source": "Framer", "item": "No access", "classification": "Needs Review" },
+    {
+      "source": "Figma",
+      "item": "Account found; files cannot be listed from here",
+      "classification": "Needs Review"
+    }
+  ]
+}

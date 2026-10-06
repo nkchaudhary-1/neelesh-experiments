@@ -3,7 +3,7 @@ id: "005"
 title: "After office hours"
 slug: "after-office-hours"
 date: "2026-09-30"
-status: "building"
+status: "live"
 categories:
   - "Web"
   - "UI"
@@ -15,14 +15,14 @@ description: "The archive you are reading: a dark editorial digital lab where ea
 cover: "./cover.png"
 coverAlt: "A dark diagram: an entry folder with index.mdx and two images on the left, an arrow labelled build, and on the right the seven things it produces, from a detail page to structured data, above a miniature 12-column grid."
 featured: false
-demoUrl: ""
+demoUrl: "https://neelesh-experiments.vercel.app"
 githubUrl: "https://github.com/nkchaudhary-1/neelesh-experiments"
 stack:
   - "Next.js"
   - "TypeScript"
   - "Tailwind CSS"
   - "MDX"
-updated: "2026-10-01"
+updated: "2026-10-06"
 draft: false
 ogImage: ""
 ---
@@ -63,13 +63,17 @@ Theme choice is applied by a tiny script before the first paint, so there is no 
 
 The site builds statically and has a home page, a filterable directory, experiment pages, categories, a chronological archive and an about page. It has generated share images, a sitemap, structured data and a unit test suite, and an accessibility audit reported no violations in either theme.
 
-It is not deployed yet, so I am calling it building.
+It is deployed on Vercel and rebuilds on every push, so I am calling it live.
 
 ## Learnings
 
 - The light accent from my brief failed contrast for small text, so I darkened it. The original was 4.2:1 against the page.
 - Arrows and status symbols are drawn as SVG. The fonts I chose do not include them, and a fallback font would draw them differently on every device.
 - A new entry folder needs a restart of the local dev server before its page appears, which is the one rough edge in the workflow.
+
+## Notes
+
+On 6 October I renamed the site from NEEL / EXPERIMENTS to After office hours and rewrote the home heading and subtext so they say what the site is and how the work gets made. The archive now has seven entries.
 
 ## Stack
 
