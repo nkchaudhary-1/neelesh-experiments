@@ -2,7 +2,7 @@
   "name": "neel-experiments",
   "version": "1.0.0",
   "private": true,
-  "description": "NEEL / EXPERIMENTS — a public archive of prototypes, interfaces and unfinished investigations.",
+  "description": "After office hours — a public archive of prototypes, interfaces and unfinished investigations.",
   "engines": {
     "node": ">=20.9.0"
   },

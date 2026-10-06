@@ -1,4 +1,4 @@
-# NEEL / EXPERIMENTS
+# After office hours
 
 A public archive of prototypes, interfaces, AI experiments, motion studies and unfinished investigations. Every entry is a folder of Markdown and media in this repository. Publishing is a commit.
 

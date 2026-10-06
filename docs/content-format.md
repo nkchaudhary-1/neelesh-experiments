@@ -1,6 +1,6 @@
-# NEEL / EXPERIMENTS — experiment content format
+# After office hours — experiment content format
 
-Use this document as the standard format for every experiment entry in the NEEL / EXPERIMENTS archive.
+Use this document as the standard format for every experiment entry in the After office hours archive.
 
 It has two purposes:
 
@@ -175,7 +175,7 @@ Avoid:
 Paste the text below into any chat, then replace the bracketed details. The chat should return only a completed MDX file, with no explanation before or after it.
 
 ~~~text
-Write one finished MDX experiment entry for the NEEL / EXPERIMENTS archive.
+Write one finished MDX experiment entry for the After office hours archive.
 
 Return only the completed MDX file. Do not include an introduction, explanation, markdown fence, or alternative versions.
 

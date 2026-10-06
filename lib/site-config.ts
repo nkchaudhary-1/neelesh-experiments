@@ -5,8 +5,8 @@ import type { CategoryDefinition } from '@/lib/content/types'
  * on several pages, or to introduce a new category.
  */
 export const siteConfig = {
-  name: 'NEEL / EXPERIMENTS',
-  shortName: 'NEEL / EXP',
+  name: 'After office hours',
+  shortName: 'After office hours',
   description:
     'A public archive of prototypes, interfaces, AI experiments, motion studies and unfinished investigations by Neelesh.',
   tagline: 'A public archive of things I’m building, testing, breaking and learning from.',
