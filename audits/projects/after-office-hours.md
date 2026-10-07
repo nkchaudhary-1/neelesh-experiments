@@ -46,3 +46,4 @@ Suggestions: enable Analytics for a traffic baseline before the next audit; set 
 - **2026-09-30:** First commit, as NEEL / EXPERIMENTS.
 - **2026-10-01:** Five real entries replace samples; images switch added; sentence case and double rules; About rewritten; first Production deployment.
 - **2026-10-06:** Renamed After office hours; seven entries; hero rewritten; status set to Live. Baseline audit.
+- **2026-10-07:** Live URL confirmed by the owner as https://neelesh-experiments.vercel.app/ and linked from the entry.
