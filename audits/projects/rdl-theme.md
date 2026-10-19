@@ -3,12 +3,12 @@
 - **Status:** Building (site entry).
 - **Live URL:** None. It is installed as a Claude Code plugin or skill, not hosted.
 - **Repository:** https://github.com/nkchaudhary-1/RDL-Theme
-- **Last reviewed:** 2026-10-06
-- **Classification:** New Experiment (priority High)
+- **Last reviewed:** 2026-10-19
+- **Classification:** Minor Update (priority Low)
 
 ## What changed
 
-First record. Discovered in this review and added to the archive as entry 006. Version 3.3.0. The last commit is from 2026-10-01.
+One commit since the baseline: on 2026-10-09 the single-file skill was also added as a plain `RDL/RDL.md` download. Version stays 3.3.0. The entry mentions it.
 
 ## Why it changed
 
@@ -35,3 +35,5 @@ Suggestions: build the SwiftUI files once in Xcode; test the plugin install on a
 - **2026-09-27:** First commit (flat look), then v2 with the glass language, the same day.
 - **2026-10-01:** v3 with layout system, anatomy, guidelines and the audit; then radius work (3.1 to 3.2) and the single-file skill (3.3.0).
 - **2026-10-06:** Added to the archive. Baseline audit.
+- **2026-10-09:** Plain-text copy of the single-file skill added.
+- **2026-10-19:** Interim review. Minor update only.

@@ -1,35 +1,37 @@
 # Spinblade Arena
 
 - **Status:** Building (site entry).
-- **Live URL:** None found. It is a single HTML file, playable by opening `index.html` or serving the folder.
+- **Live URL:** None found. It runs from a build (`npm run build:single` makes one self-contained HTML file). No hosted version linked.
 - **Repository:** https://github.com/nkchaudhary-1/Game-Design
-- **Last reviewed:** 2026-10-06
-- **Classification:** New Experiment (priority High)
+- **Last reviewed:** 2026-10-19
+- **Classification:** Major Update (priority High)
 
 ## What changed
 
-First record. Discovered in this review (first and only commit on 2026-10-06, "Build Spinblade Arena MVP from the PRD") and added to the archive as entry 007.
+Since the baseline of 2026-10-06 the project moved from a 2D prototype to a 3D game. Six commits (all dated 6 Oct, pushed by 11 Oct): a 3D rebuild from a second PRD and a blades-and-skills spec, retuned matchups, a visual overhaul, a realism pass, smoother steering and longer spin, and faster controls with a distinct look per blade. The 2D version is kept in `v1-solo/`. The site entry was written against the 2D version and has been rewritten.
 
 ## Why it changed
 
-Built from the Spinblade Arena PRD, as an MVP slice.
+Stated in the README: the build spec asked for a 3D top-down game (Three.js and Rapier), and PRD v2 added a browser-only functional test with the controller and arena side by side. The README flags that the PRD's 2D decision needs updating.
 
 ## Design / UX changes
 
-Three blades in a counter-triangle, pull-back-and-release launch with light steering, a CPU opponent per blade, and a result screen that says why a fight was lost. Game feel comes from sparks, shock rings, screen shake, hit-stop and synthesised sound. Reduced motion is respected.
+Three-dimensional blades and a concrete arena with PBR textures; cream, navy and red UI; a Hangar for 21 blades, a Workshop with about 35 parts, 22 Supers and a pad with three moves. Three graphics tiers. Spin lasts up to three minutes by Stamina.
 
 ## Technical changes
 
-Canvas 2D and vanilla JavaScript in one file with embedded fonts, plus a service worker for offline play. Physics runs on a fixed 120 Hz step. A headless balance script runs CPU against CPU and checks the design targets. No network calls, accounts or analytics.
+Vite and TypeScript, Three.js, Rapier (WebAssembly), 86 tests, a headless balance script, a BroadcastChannel two-tab controller mode. Fixed 120 Hz simulation with no DOM. The old single-file build is replaced by a bundled build; a single-file output is still available.
 
 ## Experiment insight
 
-Tests whether a counter-triangle can emerge from physics instead of being hard-coded, and whether a very short fight can stay readable on a phone. Human win rates are still unchecked.
+Tests whether a counter-triangle can emerge from ratings and physics, and whether a short fight stays readable. v2 adds a question: can the controller and the arena be separate parts from the start (the shape of a phone-and-big-screen version).
 
 ## Next opportunity
 
-Suggestions: host it (it is one static file) so the entry gets a demo link; run a playtest; decide how to collect play-again rate without network calls.
+Suggestions: host the single-file build for a demo link; measure frame rate on a real GPU (only a software renderer was used); a playtest for human win rates; give Hard difficulty its own balance pass (the README says the Attack counter does not hold there).
 
 ## History
 
-- **2026-10-06:** Initial version. Added to the archive. Baseline audit.
+- **2026-10-06:** Initial version, a single-file 2D prototype, built from the PRD. Added to the archive. Baseline audit.
+- **2026-10-06 to 2026-10-11:** Rebuilt as a 3D game (v2); 2D version kept in `v1-solo/`.
+- **2026-10-19:** Interim review. Site entry rewritten for v2 with new screenshots (captured from a local build in a software-rendered browser).
