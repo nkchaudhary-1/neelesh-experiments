@@ -3,8 +3,8 @@
 - **Status:** Building (site entry).
 - **Live URL:** None.
 - **Repository:** Private. No link published.
-- **Last reviewed:** 2026-10-19
-- **Classification:** Major Update (priority Medium)
+- **Last reviewed:** 2026-10-27
+- **Classification:** Major Update, on unmerged branches (priority Medium)
 
 ## What changed
 
@@ -38,3 +38,5 @@ Suggestions: check the entry date. The repository starts on 2026-08-26 and the m
 - **2026-10-06:** Baseline audit. No change.
 - **2026-10-16:** Adopted the Inspira 2.0 theme.
 - **2026-10-19:** Interim review. Entry note on the type plan updated.
+- **2026-10-20 to 2026-10-25:** Large redesign work on side branches that are not merged (about 35 commits on one branch on 20 Oct, two more on another by 25 Oct). The default branch has not changed since 16 Oct. Details withheld because the repository is private. The published entry still describes the default branch.
+- **2026-10-27:** Interim review. Entry not changed, since the work is unreleased.
