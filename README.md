@@ -94,6 +94,7 @@ The URL drives `metadataBase`, canonical URLs, Open Graph, `sitemap.xml`, `robot
 Everything that is not content lives in [`lib/site-config.ts`](lib/site-config.ts): site name and description, the “currently exploring” list, GitHub, LinkedIn, portfolio and email links, the category list, and the theme default.
 
 - **Analytics.** `analytics` adds Vercel Web Analytics (page views, referrers, countries; no cookies). It is `false` for now. In Vercel, open the project, then Analytics, and click Enable; after that set `analytics: true` and push. Turning it on before enabling it in Vercel logs a failed request for `/_vercel/insights/script.js` on every page.
+- **Visual placeholders.** `showPlaceholders` shows three empty visual blocks under the home hero (`components/visual-placeholders.tsx`), each marked with a diagonal cross, until real visuals exist. Set it to `false` to remove them.
 - **Images.** `showImages` hides or shows every entry image site-wide. It is `false` for now.
 - **Email.** `links.email` is empty, so no email link is shown anywhere. Set it to show one in the footer and on the About page.
 - **Theme default.** First visits open in dark. Set `theme.followSystem` to `true` to follow `prefers-color-scheme` instead (dark stays the final fallback). An explicit choice always wins.

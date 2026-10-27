@@ -9,6 +9,7 @@ import { ExperimentVisual } from '@/components/experiment-visual'
 import { Mdx } from '@/components/mdx'
 import { SectionLabel } from '@/components/section-label'
 import { StatStrip } from '@/components/stat-strip'
+import { VisualPlaceholders } from '@/components/visual-placeholders'
 import { getAboutSource, getCollection } from '@/lib/content'
 import { groupArchive } from '@/lib/content/collection'
 import { gridSpans } from '@/lib/content/explorer'
@@ -78,6 +79,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        {siteConfig.showPlaceholders ? <VisualPlaceholders /> : null}
       </section>
 
       {experiments.length === 0 ? (

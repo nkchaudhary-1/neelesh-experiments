@@ -37,6 +37,8 @@ export const siteConfig = {
    * true: show the cover and detail images that live in each entry folder.
    */
   showImages: false,
+  /** Three empty visual blocks under the home hero, until real visuals exist. */
+  showPlaceholders: true,
   theme: {
     /**
      * false: first visits always open in dark (the brand default).

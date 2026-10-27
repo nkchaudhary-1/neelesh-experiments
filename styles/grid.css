@@ -211,6 +211,40 @@
   }
 }
 
+/* Placeholder for a visual that is not made yet: a framed block crossed by its two diagonals. */
+@layer components {
+  .visual-placeholder {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    aspect-ratio: 16 / 10;
+    padding: var(--pad);
+    color: var(--color-fg-muted);
+    background-color: var(--color-surface);
+    background-image:
+      linear-gradient(
+        to top right,
+        transparent calc(50% - 0.5px),
+        var(--color-border) calc(50% - 0.5px),
+        var(--color-border) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      ),
+      linear-gradient(
+        to bottom right,
+        transparent calc(50% - 0.5px),
+        var(--color-border) calc(50% - 0.5px),
+        var(--color-border) calc(50% + 0.5px),
+        transparent calc(50% + 0.5px)
+      );
+  }
+
+  @media (min-width: 48rem) {
+    .visual-placeholder {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
 /* Double rule: a major division, as on a technical drawing. Overlaps the hairline above it. */
 @layer components {
   .rule-double {
