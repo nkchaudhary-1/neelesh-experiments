@@ -15,7 +15,7 @@ tags:
   - "Game feel"
 description: "A 3D, top-down spinning-blade duel for the browser: slingshot launch, a class triangle, supers and a workshop, with a CPU opponent and a result screen that says why."
 cover: "./cover.png"
-coverAlt: "The Spinblade Arena main menu: a bold white title on a dark navy background, three 3D blades in red, silver and cyan on the right, and Quick Battle, Hangar and How to play buttons."
+coverAlt: "The Spinblade Arena main menu: a bold white title on a dark navy background, three chunky 3D blades in red and cream, teal and purple on the right, and Quick Battle, Hangar and How to play buttons."
 featured: false
 demoUrl: ""
 githubUrl: "https://github.com/nkchaudhary-1/Game-Design"
@@ -25,7 +25,7 @@ stack:
   - "TypeScript"
   - "Vite"
   - "Web Audio"
-updated: "2026-10-27"
+updated: "2026-10-29"
 draft: false
 ogImage: ""
 ---
@@ -60,9 +60,11 @@ Balance was the long part. The first triangle was 100% against 0%, and it came b
 
 The latest pass, on 20 October, is visual and audio only, so the balance numbers did not move. A fast blade stands upright, and a slowing one leans and precesses like a gyroscope before it topples onto its rim. Sparks are real 3D streaks that cool from white-hot to dull red, and hits leave scratches on the floor that fade. Sound is synthesised: a struck-metal collision, a grinding loop, and a whirr per blade that follows its spin.
 
-![The Spinblade Arena battle screen: a red Ravok blade facing a red CPU blade on a concrete arena called Core Pit, with spin meters at the top and a controller pad with three moves and a Super on the right](./detail-01.png)
+On 27 October the generated blade geometry was replaced by blades modelled in Blender, with a layered build for all 21. Python scripts in the repository build them, and they are packed into one model file. In the newest build the blades are chunkier and more colourful, and the Hangar previews show the new models.
 
-*Caption: A battle in the latest build, Ravok against a CPU Inferno X. The arena is on the left and the controller pad, with its moves and Super, is a separate panel on the right.*
+![The Spinblade Arena battle screen: a red and cream Ravok blade facing a teal Gravion blade on a concrete arena called Core Pit, with spin meters at the top and a controller pad with three moves and a Super on the right](./detail-01.png)
+
+*Caption: A battle in the newest build, Ravok against a CPU Gravion. The arena is on the left and the controller pad, with its moves and Super, is a separate panel on the right.*
 
 The first version, for comparison, was a flat 2D arena.
 
@@ -89,4 +91,4 @@ A playable MVP: a Hangar with all 21 blades playable, a Workshop with about 35 p
 
 ## Notes
 
-A blade left alone spins for up to three minutes, depending on its Stamina rating, and the round stops at 3:00. A `?quality=` switch picks one of three graphics tiers, and `?reduced=1` removes hit-stop and calms the camera. Textures are generated when the game loads, so there are no image files in the 3D scene.
+A blade left alone spins for up to three minutes, depending on its Stamina rating, and the round stops at 3:00. A `?quality=` switch picks one of three graphics tiers, and `?reduced=1` removes hit-stop and calms the camera. The arena textures are generated when the game loads, and the blades come from one packed model file, so there are no image files in the 3D scene.

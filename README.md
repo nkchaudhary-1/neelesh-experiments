@@ -68,11 +68,11 @@ The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib
 
 ### The current entries
 
-`content/experiments/` holds eight entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper, this site, RDL Theme, Spinblade Arena and the AI Playground deck. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything except this site is marked `building` because none of the others has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
+`content/experiments/` holds nine entries: Inspira 2.0, OneMoment, AI Brain, Jarvis Wallpaper, this site, RDL Theme, Spinblade Arena, the AI Playground deck and Bollywood Night Awards. They were written from each project's own README and product docs, and from the project manifests, so the facts match the repositories. Everything except this site is marked `building` because none of the others has a confirmed public release yet. When one ships, change `status` to `live` and add `demoUrl`.
 
 **Images are currently switched off** with `showImages: false` in `lib/site-config.ts`: no cover or article image is shown or loaded, tiles become text-only and the featured entry spans the full width. Set it to `true` to bring them all back; nothing is deleted from the entry folders.
 
-The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. RDL Theme, Spinblade Arena and the AI Playground deck use real images instead: RDL Theme's are the repository's own reference renders, and the other two are captured from the running game and deck. Swap in real screenshots for the others whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
+The cover and detail images are schematic diagrams drawn from those documents (view names, hubs, modes, data flow, how the site is built), not screenshots, and their captions say so. RDL Theme, Spinblade Arena, the AI Playground deck and Bollywood Night Awards use real images instead: RDL Theme's are the repository's own reference renders, and the others are captured from the running game, deck and demo. Swap in real screenshots for the others whenever you have them: keep the file name and update `coverAlt`. Avoid screenshots of this site on its own entry, because the home page would then show a copy of itself.
 
 OneMoment lives in a private repository, so its entry has no source link and stays high-level. Check that you are comfortable with everything it says before you deploy.
 

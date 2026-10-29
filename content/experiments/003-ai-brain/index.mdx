@@ -23,7 +23,7 @@ stack:
   - "Raw WebGL"
   - "Vercel Functions"
   - "Supabase"
-updated: "2026-09-30"
+updated: "2026-10-27"
 draft: false
 ogImage: ""
 ---
@@ -47,6 +47,7 @@ Past conversations are a pile. I kept finding that I had already explored someth
 - Whether five views of the same data each answer a different question, or whether one would be enough.
 - Whether grouping and privacy can both be handled in the browser, so full conversation text never leaves the device.
 - Whether a link can add knowledge without an AI model, with every key idea a sentence quoted from the page and never rewritten.
+- Whether a saved article is worth anything a month later, and whether simple spaced recall, with no AI, can keep what it said in my head.
 
 ## Process
 
@@ -70,12 +71,17 @@ A link can be pasted to add its key ideas to the brain. The page is fetched safe
 
 *Caption: Each node is a sentence quoted from the page, connected to what the brain already holds.*
 
+Version 0.7, on 27 October, adds three ways to remember what I read, all free and with no AI. **Recall** shows a sentence I saved with one distinctive word hidden. I say it, check it and mark it Remembered or Forgot. Remembered cards come back after 1, 3, 7, 16, 35 and then 90 days, forgotten ones return tomorrow, and there are at most five new cards a day. The **Library** lists every article with its key ideas, every topic and my notes, with search and a Markdown download. And I can add a **note** to any node, shown apart from the quote.
+
+Signed in, notes and recall progress are saved to my account. Otherwise they stay in the browser, which also works on the demo brain.
+
 Google and GitHub sign-in have not been run against my own OAuth apps yet, so I treat them as untested.
 
 ## Learnings
 
 - Doing the grouping in the browser kept uploads small and kept transcripts private, and it turned out to be the simplest design as well.
 - Because history can only come by export, the app is manual by design. A connector that lets Claude add to the brain during new conversations is the more honest next step than any scraping.
+- Saving an article only helps if I can find it later and still know what it said. That is why version 0.7 adds recall and a library, not more ways to save.
 - Next on my list are mobile sharing, collections and pre-filled examples.
 
 ## Notes
