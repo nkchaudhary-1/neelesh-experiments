@@ -80,6 +80,10 @@ OneMoment lives in a private repository, so its entry has no source link and sta
 
 Once a month the whole set of projects is reviewed against the previous record. The brief is in [`docs/monthly-audit.md`](docs/monthly-audit.md), and the records are in [`audits/`](audits/): a snapshot and a report per month, plus one history file per project that is added to and never overwritten. The repository is public, so those files hold only public information.
 
+## Daily check and weekly update
+
+`/daily-check` collects what changed in the project repositories into a notes issue, and `/weekly-update` turns a week of notes into a draft update with a preview link. It publishes only after you confirm. How it works, what is watched and how to schedule it: [`docs/weekly-routine.md`](docs/weekly-routine.md).
+
 ## Deploy to Vercel
 
 1. Push to GitHub.
