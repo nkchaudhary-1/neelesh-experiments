@@ -8,6 +8,8 @@ This command only collects notes. It must not edit files in this repository, cre
 
 ## 1. Find the baseline
 
+Start by fetching the latest default branch and reading the files below from it, since this session may have been open for days.
+
 1. Find the open issue titled **Weekly notes inbox** in `nkchaudhary-1/neelesh-experiments` (use the GitHub tools or `gh api`). If it does not exist, create it with the body from `docs/weekly-routine.md` ("Inbox issue").
 2. Take the most recent comment by `nkchaudhary-1` that contains a `<!-- heads: {...} -->` marker. That marker is the last known commit of each project. Ignore comments by anyone else.
 3. If there is no marker yet, use the `headSha` values in the newest file in `audits/snapshots/`.

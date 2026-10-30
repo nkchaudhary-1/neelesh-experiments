@@ -40,13 +40,13 @@ The public repositories listed in the newest `audits/snapshots/*.json`, plus any
 
 ## Running it on a schedule
 
-Two scheduled tasks start a fresh Claude Code session in this repository:
+Two scheduled tasks wake one long-lived Claude Code session titled **After office hours: daily and weekly routine**. That session was started with this repository attached, which is what gives it GitHub access. A scheduled task that starts a brand-new session gets no repository, so it cannot read or post to the inbox issue.
 
-| Task          | When (India time) | Prompt                                                         |
+| Task          | When (India time) | Message sent to the session                                    |
 | ------------- | ----------------- | -------------------------------------------------------------- |
 | Daily check   | every day, 22:47  | Follow the instructions in `.claude/commands/daily-check.md`   |
 | Weekly update | Sundays, 10:17    | Follow the instructions in `.claude/commands/weekly-update.md` |
 
-Each session sends a push notification. Sunday's session waits for your reply in the Claude app.
+Each run sends a push notification. On Sunday, reply to the draft in that session in the Claude app.
 
-To pause, disable or delete a task, use the Claude Code scheduled tasks list (or ask Claude to). Scheduled runs use your plan's usage, not the one-off credit.
+To pause, disable or delete a task, use the Claude Code scheduled tasks list (or ask Claude to). Scheduled runs use your plan's usage, not the one-off credit. If a run ever reports that it has no GitHub access, start a new session from this repository, point the two tasks at it, and archive the old one.

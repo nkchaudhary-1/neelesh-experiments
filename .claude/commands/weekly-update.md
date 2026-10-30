@@ -15,7 +15,7 @@ Run the weekly update for the After office hours archive. Read `docs/weekly-rout
 
 ## 2. Draft the update on a branch
 
-Work on this session's branch. Never commit to the default branch directly.
+Start by fetching and checking out the latest default branch, then cut a fresh branch `weekly/<YYYY-MM-DD>` from it. If pushing that branch is refused, use this session's own branch instead, reset to the latest default branch first. Never commit to the default branch directly.
 
 Change only `content/` and `audits/`. If a code or design change looks needed, list it as a suggestion in your summary and leave it alone.
 
@@ -39,7 +39,7 @@ Run `npm ci` if `node_modules` is missing, then `npm run check` and `npm run bui
 
 ## 4. Push the draft for preview
 
-Commit on the session branch and push that branch. Vercel builds a **Preview** for any branch that is not the default; find its URL in the repository's deployments (`gh api repos/nkchaudhary-1/neelesh-experiments/deployments?sha=<full sha>` and its statuses). This does not touch the live site.
+Commit on the draft branch and push it. Vercel builds a **Preview** for any branch that is not the default; find its URL in the repository's deployments (`gh api repos/nkchaudhary-1/neelesh-experiments/deployments?sha=<full sha>` and its statuses). This does not touch the live site.
 
 ## 5. Show Neelesh, then wait
 
@@ -50,10 +50,10 @@ Send one message with, in this order:
 3. **Preview:** the Vercel Preview link.
 4. **Decision:** "Reply `ship` to publish, `edit: <what to change>` to adjust, or `skip` to drop this week."
 
-Then stop and wait for the reply. Do not push to the default branch, do not open a pull request, and do not publish on your own.
+Then stop and wait for the reply. Do not merge, do not push to the default branch, and do not publish on your own.
 
 ## 6. After the reply
 
-- **`ship`**: merge the branch into the default branch (fast-forward when possible) and push it. Poll the Production deployment for that commit until it succeeds or fails, and report the result with the live URL. Then post a comment on the inbox issue starting with `Published <date>`, with the commit link and one line per project updated. If the deployment fails, say so and fix or revert; do not leave the live site broken.
+- **`ship`**: merge the branch into the default branch (fast-forward when possible) and push it. If that push is refused, open a pull request from the draft branch and merge it with the GitHub tools; the `ship` reply is the approval for that. Poll the Production deployment for that commit until it succeeds or fails, and report the result with the live URL. Then post a comment on the inbox issue starting with `Published <date>`, with the commit link and one line per project updated. If the deployment fails, say so and fix or revert; do not leave the live site broken.
 - **`edit: ...`**: make the change, re-run step 3, push the branch again, and show the updated diff. Wait again.
 - **`skip`**: post a `Skipped <date>` comment on the inbox issue. Delete the draft branch. The notes stay in the inbox and roll into next week.
