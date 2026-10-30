@@ -243,6 +243,13 @@
       aspect-ratio: 4 / 3;
     }
   }
+
+  /* Fills the hero banner's visual cell instead of holding its own ratio. */
+  .visual-placeholder--fill {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 13rem;
+  }
 }
 
 /* Double rule: a major division, as on a technical drawing. Overlaps the hairline above it. */

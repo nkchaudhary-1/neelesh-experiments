@@ -1,6 +1,6 @@
 import { CategoryDirectory } from '@/components/category-directory'
 import { EmptyState } from '@/components/empty-state'
-import { PageHeader, Slash } from '@/components/page-header'
+import { PageHeader } from '@/components/page-header'
 import { getCollection } from '@/lib/content'
 import { pad, plural } from '@/lib/format'
 import { pageMetadata } from '@/lib/seo'
@@ -19,18 +19,8 @@ export default function CategoriesPage() {
     <div className="frame">
       <PageHeader
         eyebrow={`${pad(categories.length)} ${plural(categories.length, 'Category', 'Categories')}`}
-        title={
-          <>
-            <Slash />
-            Categories
-          </>
-        }
-        aside={
-          <p className="max-w-[38ch] text-fg-muted">
-            Categories are a controlled list. Each one shows how much work it holds and what landed
-            in it most recently.
-          </p>
-        }
+        title="Categories"
+        intro="The archive grouped by subject. Each category shows how many experiments it holds and the newest one."
       />
       {categories.length === 0 ? <EmptyState /> : <CategoryDirectory categories={categories} />}
     </div>

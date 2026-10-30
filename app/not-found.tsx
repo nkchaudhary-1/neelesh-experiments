@@ -22,7 +22,7 @@ export default function NotFound() {
               href="/experiments"
               className="label inline-flex min-h-11 items-center text-accent underline underline-offset-4"
             >
-              Experiment index
+              All experiments
             </Link>
             <Link
               href="/"

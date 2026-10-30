@@ -20,7 +20,7 @@ export function ErrorState({ onRetry }: { onRetry: () => void }) {
               href="/experiments"
               className="label inline-flex min-h-11 items-center text-fg-muted underline underline-offset-4 hover:text-fg focus-visible:text-fg"
             >
-              Experiment index
+              All experiments
             </Link>
           </div>
         </div>

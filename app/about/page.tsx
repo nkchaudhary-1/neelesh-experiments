@@ -1,6 +1,6 @@
 import { ExternalLink } from '@/components/external-link'
 import { Mdx } from '@/components/mdx'
-import { PageHeader, Slash } from '@/components/page-header'
+import { PageHeader } from '@/components/page-header'
 import { getAboutSource } from '@/lib/content'
 import { pageMetadata } from '@/lib/seo'
 import { siteConfig } from '@/lib/site-config'
@@ -20,12 +20,9 @@ export default function AboutPage() {
   return (
     <div className="frame">
       <PageHeader
-        title={
-          <>
-            <Slash />
-            About
-          </>
-        }
+        eyebrow="Neelesh Chaudhary"
+        title="About"
+        intro="The person behind the archive, and why it exists."
       />
       <div className="rule-grid">
         <div className="cell py-10 md:py-16 lg:col-span-9">

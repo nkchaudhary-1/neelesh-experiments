@@ -7,14 +7,17 @@ export function SectionLabel({
   children,
   id,
   action,
+  rule = true,
 }: {
   children: React.ReactNode
   id?: string
   action?: { href: string; label: string }
+  /** Set false when a double rule already sits directly above, as under a hero banner. */
+  rule?: boolean
 }) {
   return (
     <>
-      <DoubleRule />
+      {rule ? <DoubleRule /> : null}
       <div className="rule-grid">
         <div className="cell flex items-center justify-between gap-4 py-5 md:py-6">
           <h2 id={id} className="label text-fg">

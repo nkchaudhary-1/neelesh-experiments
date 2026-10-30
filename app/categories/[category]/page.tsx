@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft } from '@/components/icons'
 import { ExperimentIndexHead, ExperimentRow } from '@/components/experiment-row'
-import { PageHeader, Slash } from '@/components/page-header'
+import { PageHeader } from '@/components/page-header'
 import { getCollection } from '@/lib/content'
 import { pad, plural } from '@/lib/format'
 import { pageMetadata } from '@/lib/seo'
@@ -54,13 +54,8 @@ export default async function CategoryPage({ params }: Props) {
 
       <PageHeader
         eyebrow={`${pad(category.count)} ${plural(category.count, 'Experiment')}`}
-        title={
-          <>
-            <Slash />
-            {category.name}
-          </>
-        }
-        aside={<p className="max-w-[38ch] text-fg-muted">{category.description}</p>}
+        title={category.name}
+        intro={category.description}
       />
 
       <section aria-label={`${category.name} experiments`}>
