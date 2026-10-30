@@ -45,6 +45,14 @@ export function ArrowUpRight({ className }: IconProps) {
   )
 }
 
+export function ChevronDown({ className }: IconProps) {
+  return (
+    <svg {...svgProps} className={cn('shrink-0', className)}>
+      <path d="M4 6l4 4 4-4" />
+    </svg>
+  )
+}
+
 export function ArrowUp({ className }: IconProps) {
   return (
     <svg {...svgProps} className={cn('shrink-0', className)}>

@@ -148,7 +148,7 @@ export default function HomePage() {
                     <li key={category.slug}>
                       <Link
                         href={`/categories/${category.slug}`}
-                        className="label inline-flex min-h-11 items-center gap-3 border border-border-strong px-4 hover:bg-surface focus-visible:bg-surface"
+                        className="label inline-flex min-h-11 items-center gap-3 rounded-full border border-border-strong px-4 hover:bg-surface focus-visible:bg-surface"
                       >
                         {category.name}
                         <span className="text-fg-muted">{pad(category.count)}</span>

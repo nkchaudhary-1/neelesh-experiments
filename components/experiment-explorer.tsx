@@ -12,7 +12,7 @@ import {
   serializeExplorerState,
   type ExplorerState,
 } from '@/lib/content/explorer'
-import type { ExperimentCard } from '@/lib/content/types'
+import { STATUSES, type ExperimentCard } from '@/lib/content/types'
 
 /**
  * The searchable directory. The URL is the only source of truth: filters are read from the
@@ -35,6 +35,12 @@ export function ExperimentExplorer({
     [searchParams, categorySlugs],
   )
   const results = useMemo(() => applyExplorerState(experiments, state), [experiments, state])
+  // Only offer statuses that have entries, so no button leads to an empty list.
+  const statuses = useMemo(
+    () =>
+      STATUSES.filter((status) => experiments.some((experiment) => experiment.status === status)),
+    [experiments],
+  )
 
   const update = useCallback(
     (patch: Partial<ExplorerState>) => {
@@ -48,6 +54,7 @@ export function ExperimentExplorer({
     <>
       <FilterBar
         categories={categories}
+        statuses={statuses}
         total={experiments.length}
         resultCount={results.length}
         state={state}

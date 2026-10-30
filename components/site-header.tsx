@@ -3,11 +3,17 @@ import { ExternalLink } from '@/components/external-link'
 import { MobileMenu } from '@/components/mobile-menu'
 import { SiteNav } from '@/components/site-nav'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { getCollection } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
 
 /** Sticky, compact, divided by 1px rules: wordmark · nav · (spacer) · theme · GitHub · year. */
 export function SiteHeader() {
   const year = new Date().getFullYear()
+  const categories = getCollection().categories.map(({ slug, name, count }) => ({
+    slug,
+    name,
+    count,
+  }))
 
   return (
     <header className="sticky top-0 z-40 border-b bg-bg">
@@ -21,7 +27,7 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">
-          <SiteNav variant="bar" />
+          <SiteNav variant="bar" categories={categories} />
         </nav>
 
         <div className="ml-auto hidden items-stretch md:flex">
@@ -36,7 +42,7 @@ export function SiteHeader() {
         </div>
 
         <div className="ml-auto flex md:hidden">
-          <MobileMenu year={year} />
+          <MobileMenu year={year} categories={categories} />
         </div>
       </div>
     </header>

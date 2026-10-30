@@ -11,7 +11,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata = pageMetadata({
   title: 'All experiments',
   description:
-    'Every experiment in the archive, filterable by category and status, as a visual grid or a dense index.',
+    'Every experiment in the archive, filterable by status, as a visual grid or a dense index.',
   path: '/experiments',
 })
 
@@ -25,7 +25,7 @@ export default function ExperimentsPage() {
       <PageHeader
         eyebrow={`${pad(stats.total)} ${plural(stats.total, 'Experiment')}`}
         title="All experiments"
-        intro="Everything in the archive, newest first. Filter by category or status, and switch between a grid and a list."
+        intro="Everything in the archive, newest first. Filter by status, or switch between a grid and an index. Browse by subject from Categories in the menu."
       />
       {/* The static HTML ships the default list; the explorer takes over on hydration. */}
       <Suspense

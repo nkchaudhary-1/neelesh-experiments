@@ -156,7 +156,8 @@ describe('current nav', () => {
     ['/experiments/ai-brain', null, 'experiments'],
     ['/about', null, 'about'],
     ['/', null, null],
-    ['/categories/ai', null, null],
+    ['/categories', null, 'categories'],
+    ['/categories/ai', null, 'categories'],
   ])('%s view=%s → %s', (pathname, view, expected) => {
     expect(resolveCurrentNav(pathname, view)).toBe(expected)
   })

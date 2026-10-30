@@ -5,13 +5,14 @@ import { useEffect, useRef, useState } from 'react'
 import { ExternalLink } from '@/components/external-link'
 import { SiteNav } from '@/components/site-nav'
 import { ThemeToggle } from '@/components/theme-toggle'
+import type { NavCategory } from '@/lib/nav'
 import { siteConfig } from '@/lib/site-config'
 
 /**
  * Full-screen menu built on a native modal <dialog>: the browser traps focus inside it,
  * makes the rest of the page inert, closes on Escape and restores focus to MENU.
  */
-export function MobileMenu({ year }: { year: number }) {
+export function MobileMenu({ year, categories }: { year: number; categories: NavCategory[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const [open, setOpen] = useState(false)
 
@@ -68,7 +69,7 @@ export function MobileMenu({ year }: { year: number }) {
         </div>
 
         <nav aria-label="Primary" className="overflow-y-auto">
-          <SiteNav variant="menu" onNavigate={close} />
+          <SiteNav variant="menu" categories={categories} onNavigate={close} />
         </nav>
 
         <div className="mt-auto flex items-stretch border-t">

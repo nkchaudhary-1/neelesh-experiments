@@ -3,15 +3,22 @@
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { NavLinks } from '@/components/nav-links'
-import { resolveCurrentNav } from '@/lib/nav'
+import { resolveCurrentNav, type NavCategory } from '@/lib/nav'
 
-function CurrentNav({ variant, onNavigate }: { variant: 'bar' | 'menu'; onNavigate?: () => void }) {
+interface NavProps {
+  variant: 'bar' | 'menu'
+  categories: NavCategory[]
+  onNavigate?: () => void
+}
+
+function CurrentNav({ variant, categories, onNavigate }: NavProps) {
   const pathname = usePathname()
   const view = useSearchParams().get('view')
   return (
     <NavLinks
       current={resolveCurrentNav(pathname, view)}
       variant={variant}
+      categories={categories}
       onNavigate={onNavigate}
     />
   )
@@ -22,16 +29,19 @@ function CurrentNav({ variant, onNavigate }: { variant: 'bar' | 'menu'; onNaviga
  * static route, so the prerendered HTML carries the same links without aria-current and the
  * browser fills it in on hydration.
  */
-export function SiteNav({
-  variant,
-  onNavigate,
-}: {
-  variant: 'bar' | 'menu'
-  onNavigate?: () => void
-}) {
+export function SiteNav({ variant, categories, onNavigate }: NavProps) {
   return (
-    <Suspense fallback={<NavLinks current={null} variant={variant} onNavigate={onNavigate} />}>
-      <CurrentNav variant={variant} onNavigate={onNavigate} />
+    <Suspense
+      fallback={
+        <NavLinks
+          current={null}
+          variant={variant}
+          categories={categories}
+          onNavigate={onNavigate}
+        />
+      }
+    >
+      <CurrentNav variant={variant} categories={categories} onNavigate={onNavigate} />
     </Suspense>
   )
 }

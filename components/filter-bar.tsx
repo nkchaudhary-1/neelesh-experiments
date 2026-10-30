@@ -1,11 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
-import { StatusGlyph } from '@/components/icons'
 import { STATUS_LABEL } from '@/components/status-badge'
 import { cn } from '@/lib/cn'
-import { SORTS, VIEWS, type ExplorerState } from '@/lib/content/explorer'
-import { STATUSES } from '@/lib/content/types'
+import { VIEWS, type ExplorerState } from '@/lib/content/explorer'
+import type { ExperimentStatus } from '@/lib/content/types'
 import { pad, plural } from '@/lib/format'
 
 export interface CategoryOption {
@@ -14,7 +12,7 @@ export interface CategoryOption {
   count: number
 }
 
-function FilterButton({
+function Segment({
   pressed,
   onClick,
   children,
@@ -29,10 +27,8 @@ function FilterButton({
       aria-pressed={pressed}
       onClick={onClick}
       className={cn(
-        'label inline-flex min-h-11 shrink-0 items-center gap-2 border px-3.5 md:min-h-9',
-        pressed
-          ? 'border-fg bg-fg text-bg'
-          : 'border-border text-fg-muted hover:border-border-strong hover:text-fg focus-visible:border-border-strong focus-visible:text-fg',
+        'label inline-flex min-h-11 items-center rounded-full px-3.5 md:min-h-8',
+        pressed ? 'bg-fg text-bg' : 'text-fg-muted hover:text-fg focus-visible:text-fg',
       )}
     >
       {children}
@@ -40,144 +36,93 @@ function FilterButton({
   )
 }
 
-/** Horizontal scroller that fades its edges only while there is more to reveal. */
-function ScrollRow({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [edge, setEdge] = useState({ start: false, end: false })
-
-  const measure = useCallback(() => {
-    const element = ref.current
-    if (!element) return
-    const start = element.scrollLeft > 4
-    const end = element.scrollLeft + element.clientWidth < element.scrollWidth - 4
-    setEdge((previous) =>
-      previous.start === start && previous.end === end ? previous : { start, end },
-    )
-  }, [])
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-    const observer = new ResizeObserver(measure)
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [measure])
-
+/** One rounded pill holding a small set of mutually exclusive choices. */
+function Pill({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div
-      ref={ref}
-      onScroll={measure}
-      data-start={edge.start}
-      data-end={edge.end}
-      className="scroll-x -mx-1 flex min-w-0 gap-1.5 px-1 py-1"
+      role="group"
+      aria-label={label}
+      className="inline-flex items-center gap-0.5 rounded-full border border-border-strong p-0.5"
     >
       {children}
     </div>
   )
 }
 
-function FilterRow({
-  label,
-  className,
-  children,
-}: {
-  label: string
-  className?: string
-  children: React.ReactNode
-}) {
-  const id = useId()
-  return (
-    <div
-      role="group"
-      aria-labelledby={id}
-      className={cn(
-        'cell flex flex-col gap-2 py-3 lg:flex-row lg:items-center lg:gap-5',
-        className,
-      )}
-    >
-      <span id={id} className="label w-20 shrink-0 text-fg-muted">
-        {label}
-      </span>
-      <ScrollRow>{children}</ScrollRow>
-    </div>
-  )
-}
-
+/**
+ * The directory's only controls: a status pill and a grid/index pill. Categories live in the top
+ * navigation, so they are not repeated here. A category still in the URL from an older link shows
+ * as a removable pill so the list never filters silently.
+ */
 export function FilterBar({
   categories,
+  statuses,
   total,
   resultCount,
   state,
   onChange,
 }: {
   categories: CategoryOption[]
+  statuses: ExperimentStatus[]
   total: number
   resultCount: number
   state: ExplorerState
   onChange: (patch: Partial<ExplorerState>) => void
 }) {
   const filtered = resultCount !== total
+  const activeCategory =
+    state.category === 'all'
+      ? null
+      : categories.find((category) => category.slug === state.category)
 
   return (
     <div className="rule-grid">
-      <FilterRow label="Category">
-        <FilterButton
-          pressed={state.category === 'all'}
-          onClick={() => onChange({ category: 'all' })}
-        >
-          All
-        </FilterButton>
-        {categories.map((category) => (
-          <FilterButton
-            key={category.slug}
-            pressed={state.category === category.slug}
-            onClick={() => onChange({ category: category.slug })}
-          >
-            {category.name}
-            <span className={state.category === category.slug ? 'text-bg/70' : 'text-fg-muted'}>
-              {pad(category.count)}
-            </span>
-          </FilterButton>
-        ))}
-      </FilterRow>
+      <div className="cell flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3">
+        <p role="status" className="label text-fg-muted">
+          <span className="text-fg">{pad(resultCount)}</span>
+          {filtered ? ` of ${pad(total)}` : ''} {plural(resultCount, 'Experiment')}
+          {filtered ? ' match' : ''}
+        </p>
 
-      <FilterRow label="Status" className="lg:col-span-6">
-        <FilterButton pressed={state.status === 'all'} onClick={() => onChange({ status: 'all' })}>
-          All
-        </FilterButton>
-        {STATUSES.map((status) => (
-          <FilterButton
-            key={status}
-            pressed={state.status === status}
-            onClick={() => onChange({ status })}
-          >
-            <StatusGlyph status={status} />
-            {STATUS_LABEL[status]}
-          </FilterButton>
-        ))}
-      </FilterRow>
+        <div className="flex flex-wrap items-center gap-2">
+          {activeCategory ? (
+            <button
+              type="button"
+              aria-label={`Clear category: ${activeCategory.name}`}
+              onClick={() => onChange({ category: 'all' })}
+              className="label inline-flex min-h-11 items-center gap-2 rounded-full border border-fg px-4 md:min-h-9"
+            >
+              {activeCategory.name}
+              <span aria-hidden>×</span>
+            </button>
+          ) : null}
 
-      <FilterRow label="Sort" className="md:col-span-6 lg:col-span-3">
-        {SORTS.map((sort) => (
-          <FilterButton key={sort} pressed={state.sort === sort} onClick={() => onChange({ sort })}>
-            {sort === 'latest' ? 'Latest' : 'Oldest'}
-          </FilterButton>
-        ))}
-      </FilterRow>
+          {statuses.length > 1 ? (
+            <Pill label="Status">
+              <Segment pressed={state.status === 'all'} onClick={() => onChange({ status: 'all' })}>
+                All
+              </Segment>
+              {statuses.map((status) => (
+                <Segment
+                  key={status}
+                  pressed={state.status === status}
+                  onClick={() => onChange({ status })}
+                >
+                  {STATUS_LABEL[status]}
+                </Segment>
+              ))}
+            </Pill>
+          ) : null}
 
-      <FilterRow label="View" className="md:col-span-6 lg:col-span-3">
-        {VIEWS.map((view) => (
-          <FilterButton key={view} pressed={state.view === view} onClick={() => onChange({ view })}>
-            {view === 'grid' ? 'Grid' : 'Index'}
-          </FilterButton>
-        ))}
-      </FilterRow>
-
-      <p role="status" className="cell label py-3 text-fg-muted">
-        <span className="text-fg">{pad(resultCount)}</span>
-        {filtered ? ` of ${pad(total)}` : ''} {plural(resultCount, 'Experiment')}
-        {filtered ? ' match' : ''}
-      </p>
+          <Pill label="View">
+            {VIEWS.map((view) => (
+              <Segment key={view} pressed={state.view === view} onClick={() => onChange({ view })}>
+                {view === 'grid' ? 'Grid' : 'Index'}
+              </Segment>
+            ))}
+          </Pill>
+        </div>
+      </div>
     </div>
   )
 }

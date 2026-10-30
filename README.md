@@ -64,7 +64,7 @@ The body uses the sections described in the format document (`## Overview`, `## 
 
 ### Categories
 
-The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib/site-config.ts): AI, UI, UX, Interaction, Motion, Web, Tools, Experimental, Other. A typo in frontmatter fails the build instead of quietly creating a category. To introduce one, add a name, slug and one-line description there. Category pages, counts, filters and the directory are all derived, and only categories with published work appear.
+The controlled list lives in `categoryDefinitions` in [`lib/site-config.ts`](lib/site-config.ts): AI, UI, UX, Interaction, Motion, Web, Tools, Experimental, Other. A typo in frontmatter fails the build instead of quietly creating a category. To introduce one, add a name, slug and one-line description there. Category pages, counts, the nav dropdown and the directory are all derived, and only categories with published work appear.
 
 ### The current entries
 
@@ -116,7 +116,7 @@ styles/         tokens, base, grid rules, prose
 
 - **Static everywhere.** Content is read and validated at build time. Every published entry, category and media file is prerendered. Production excludes drafts entirely.
 - **One client footprint.** Browser-only code is limited to the theme toggle, mobile menu, nav highlighting, and the filter/view controls, plus the Vercel Analytics script when `analytics` is on. Everything else renders on the server.
-- **Filters live in the URL.** `/experiments?category=ai&status=live&sort=oldest&view=index` is shareable, reloadable and works with the back button. Unknown values fall back to defaults. The static HTML contains the default list; the explorer takes over on hydration.
+- **Filters live in the URL.** `/experiments?status=live&view=index` is shareable, reloadable and works with the back button. Unknown values fall back to defaults. The static HTML contains the default list; the explorer takes over on hydration. The page shows two pills, status and grid/index; categories are reached from the Categories dropdown in the top nav, and `category` and `sort` still work as URL parameters.
 - **Media.** Files beside `index.mdx` are served through `/media/<slug>/…` and rendered with `next/image`, with real dimensions read at build time. Image URLs carry a short content hash (`/media/<slug>/v-<hash>/<file>`), so replacing `cover.png` under the same name always shows the new picture instead of a cached one. Only the main featured image and each detail cover are preloaded.
 - **Open Graph.** `ogImage` if set, otherwise a generated type-led card at `/og/<slug>` (site default at `/og/default.png`).
 
