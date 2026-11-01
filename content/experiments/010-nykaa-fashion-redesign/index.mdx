@@ -1,0 +1,73 @@
+---
+id: "010"
+title: "Nykaa Fashion redesign"
+slug: "nykaa-fashion-redesign"
+date: "2026-10-30"
+status: "building"
+categories:
+  - "UX"
+  - "UI"
+  - "Web"
+tags:
+  - "Redesign"
+  - "Prototype"
+  - "E-commerce"
+  - "Curation"
+description: "A responsive-web prototype that redesigns fashion discovery around taste instead of discount, with every backend step simulated and labelled."
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/NykaaFashion"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Tailwind CSS"
+  - "Framer Motion"
+  - "Playwright"
+updated: ""
+draft: false
+ogImage: ""
+---
+
+# Nykaa Fashion redesign
+
+A prototype that redesigns the discovery experience of an online fashion store so that browsing is led by taste, not by discount. Hidden Gems, Luxe, the Responsible Edit, Festive and House of Nykaa become first-class destinations, and a discount shows only where a price has really moved. It was built from a written product brief in a single day.
+
+## Overview
+
+It is a responsive website, not an app. The pages cover an adaptive home, search with suggestions, category and edit pages with filters kept in the URL, a product page with a gallery and size guide, a bag, a three-step checkout and an account area with orders and tracking.
+
+Everything that would need a backend is simulated and labelled as such in the interface: sign-in codes, payments, orders, returns, reviews and personalisation. Products, labels, stories and people are fictional. No payment is taken and no order exists.
+
+## The idea
+
+Most fashion stores lead with offers. I wanted to see whether curation, meaning edits that sit beside Shop and Discover in the main navigation, can be the default way in. The home page adapts to what the visitor seems to want: a cold start shows curation, a returning visitor gets a "picked for you" rail and a deal-seeker gets offers promoted.
+
+## What I was testing
+
+- Whether the intent-adaptive home can be built from simple local heuristics, without a recommender.
+- Whether a full shopping journey, from home to a confirmed order, holds up on a phone and with a keyboard alone.
+- Whether imagery can be generated from the catalogue data when no photo host is reachable.
+
+## Process
+
+The build followed the order in the brief: foundation, discovery, product pages, commerce, account, then polish. State lives in a small external store with browser storage, and the mock data sits in plain TypeScript modules so scripts can import it directly.
+
+No photo host was reachable, so a procedural art engine in the repository draws the imagery from the catalogue data: product shots in 25 kinds and 47 editorial scenes with shoppable pins. Each image is a file, so a photograph with the same name can replace it without code changes.
+
+A reviewer panel in the prototype lets me force an intent state, add latency, fail the next request, hide a home module, read the event log and reset everything.
+
+## Result
+
+A working prototype in a public repository. According to its own status file, a 21-step end-to-end shopping journey passes on desktop and mobile, an automated accessibility scan (axe-core) finds no violations across 23 pages, and no page overflows horizontally at four widths. There is no hosted version linked yet.
+
+## Learnings
+
+- Tooling caught most of the problems. The overflow scan found 32 layout issues on its first run, mostly grids that stretched past the screen.
+- A listing page that computes its results after the page loads is much slower on a throttled phone. The repository's own measurement is about 3.2 seconds for the largest paint, against about 1.0 second on pages whose hero is in the HTML.
+- Some of the generated imagery is crude. Footwear and jewellery are stylised, and kids and men are proportion changes, not separate constructions.
+- Not done: a manual screen-reader pass and a real-device touch pass. Automated checks are not an accessibility audit.
+
+## Notes
+
+This is an independent design exercise and is not affiliated with or endorsed by Nykaa. The label names from the brief are used as named, and everything else is fictional. Checkout, payments, sign-in, orders and tracking are simulated.

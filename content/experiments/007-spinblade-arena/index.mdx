@@ -25,7 +25,7 @@ stack:
   - "TypeScript"
   - "Vite"
   - "Web Audio"
-updated: "2026-10-29"
+updated: "2026-11-01"
 draft: false
 ogImage: ""
 ---
@@ -39,6 +39,8 @@ Spinblade Arena is a 3D, top-down spinning-blade duel for the browser. Two blade
 You launch by pulling back and releasing, then steer with a floating stick while three moves and a Super sit on a pad beside the arena. The loop is menu, launch, battle, result, rematch.
 
 At first only three of the 21 blades in the roster were playable: Ravok (Attack), Gravion (Defense) and Phantom (Stamina). A commit on 20 October added moves, Supers and effects for all 21, and the Hangar now reads 21 playable. Everything is bundled, nothing is fetched at runtime, and nothing is stored.
+
+The newest build also explains the powers. Pre-battle has a "What my powers do" panel for your blade and the CPU's, and the Hangar lists the effects of each move and Super. In a fight, pressing `H` or the `?` button pauses and shows both kits, and using a move or Super flashes its name and first effect on screen. Status chips sit under each HUD card, and a coloured ring under each blade shows its state: white for invulnerable, violet for debuffed, blue for shielded and green for buffed. There is also a Practice dummy round, where the CPU stands still, uses nothing and nothing is scored.
 
 ## The idea
 
@@ -55,6 +57,8 @@ A fight this short has to stay readable on a phone. When a blade loses, the play
 The first version was a single-file 2D prototype, which is still playable in the repository. Version 2 moved to 3D with Three.js and the Rapier physics engine. The spec asked for a top-down camera, so the gameplay stays planar and the 2D design intent holds. The PRD decision that said 2D needs updating.
 
 Everything is data: blades, moves, Supers, parts and arenas are tables. The simulation runs on a fixed 120 Hz step with no DOM, so the same code runs in the browser, in the tests and in a headless balance script.
+
+The power text is generated from the same data that runs the moves, so the words cannot drift from the game. A script, `tools/powers.ts`, fires every move and Super in a staged fight, and the README reports 0 of 175 powers with no visible effect. While doing that I found a bug: a quick tap on the chargeable Move 1 did nothing, and it now fires a weak jab.
 
 Balance was the long part. The first triangle was 100% against 0%, and it came back whenever fights got longer, because a steady stat edge in passive decay wins every long fight. I fixed it with global knobs and three small rating changes, not blade-specific code. At the default level each counter wins 73 to 87% of CPU-against-CPU fights, from both seats. Those tables still cover the first three blades.
 
@@ -87,7 +91,7 @@ A playable MVP: a Hangar with all 21 blades playable, a Workshop with about 35 p
 - The player's blade gets a small assist the CPU does not, so the CPU table understates how strong a human is. Giving the CPU the same assist turned every matchup into a coin flip.
 - In the three-blade balance runs, the Attack counter does not hold at Hard difficulty (Ravok against Phantom wins 43%), and Gravion never rings anyone out in CPU play. Both need their own pass. The 21-blade roster has a balance harness now, but the README's tables still cover the first three.
 - Not measured yet: frame rate on a real GPU, since I only ever ran it in a software-rendered browser, and win rates for real players. I checked the sounds by rendering them offline and have not heard them through speakers.
-- The newest commits are marked work in progress, covering arena mechanics and a progression core. The README has not caught up with them.
+- The README now says all 21 blades and 8 arenas play, with hazards. Earlier it said 18 blades and 7 arenas were data only. It lists what is still not built: Arena Selection, Progression and Settings screens, the Arena Circuit campaign, gamepad support and rarity effects. Three blades are outside the 35 to 65% balance band: Titan Breaker at 71%, Bastion X at 66% and Spectra at 33%.
 
 ## Notes
 

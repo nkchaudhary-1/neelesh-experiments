@@ -43,3 +43,4 @@ Suggestions: host the single-file build for a demo link; measure frame rate on a
 - **2026-10-27:** Interim review. Entry updated; screenshots retaken from a local build.
 - **2026-10-29:** Interim review. Entry and screenshots updated for the new blade models.
 - **2026-10-19:** Interim review. Site entry rewritten for v2 with new screenshots (captured from a local build in a software-rendered browser).
+- **2026-11-01:** Interim review. Major update (30 Oct): a "What my powers do" panel, effect lists in the Hangar, an in-battle kit view (`H` or `?`), status chips and state rings, a Practice dummy round, and a fix for quick taps on Move 1. The README now says all 21 blades and 8 arenas play. Three blades sit outside the 35 to 65% balance band (Titan Breaker 71%, Bastion X 66%, Spectra 33%). Entry updated; screenshots unchanged. No hosted version found.

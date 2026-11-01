@@ -39,3 +39,4 @@ Suggestions: build the SwiftUI files once in Xcode; test the plugin install on a
 - **2026-10-19:** Interim review. Minor update only.
 - **2026-10-20:** Repository pushed; no content change on the default branch.
 - **2026-10-27:** Interim review. No change.
+- **2026-11-01:** Interim review. Major update: version 4 (30 Oct) adds Light, Dark and Brand themes. A theme engine derives about 70 semantic roles, checks every contrast pair and fails the build on a miss; the same engine runs at build time, in the browser and in SwiftUI. New `themes.html` and `theme-studio.html` templates; v3 token names kept as aliases. Entry updated (description, stack, overview, process, result). The new v4 screenshots in the repository are not yet on the entry. No live URL found.

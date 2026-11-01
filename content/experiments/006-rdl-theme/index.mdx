@@ -13,7 +13,7 @@ tags:
   - "Claude skill"
   - "Tokens"
   - "UI audit"
-description: "A Claude Code skill and design system that turns a study of 220 RonDesignLab shots into tokens, layout rules and a UI audit for web and SwiftUI."
+description: "A Claude Code skill and design system that turns a study of 220 RonDesignLab shots into tokens, layout rules, a UI audit and, in version 4, contrast-checked Light, Dark and Brand themes for web and SwiftUI."
 cover: "./cover.png"
 coverAlt: "Three angled phone mockups of a fictional gold app: a light home screen with a portfolio value and price chart, a dark buy screen with a tick ruler and slide-to-buy control, and a light SIP screen with a month grid."
 featured: false
@@ -25,7 +25,8 @@ stack:
   - "Tailwind"
   - "SwiftUI"
   - "Playwright"
-updated: ""
+  - "JavaScript"
+updated: "2026-11-01"
 draft: false
 ogImage: ""
 ---
@@ -36,7 +37,7 @@ RDL Theme is a Claude Code skill and design system built from a study of 220 sho
 
 ## Overview
 
-The skill turns the study into things a build can use: calibrated tokens for CSS, Tailwind and SwiftUI, a spacing and layout system, exact component anatomy, a usage rulebook and screen patterns by domain. There are two looks, glass by default and the original flat v1, eleven accent colours, and light and dark modes.
+The skill turns the study into things a build can use: calibrated tokens for CSS, Tailwind and SwiftUI, a spacing and layout system, exact component anatomy, a usage rulebook and screen patterns by domain. There are two looks, glass by default and the original flat v1, eleven accent colours, and, since version 4, three themes: Light, Dark and Brand, where I pick a primary and a secondary colour.
 
 You ask for a screen in plain language, for example the SIP screen of a gold app in SwiftUI with a gold accent, and the skill supplies the rules, the tokens and a QA checklist.
 
@@ -62,15 +63,17 @@ Tokens live in one `tokens.json`. A script generates the CSS, the Tailwind prese
 
 Later versions added the nested-radius method from a design article, then packaged everything as a single `RDL/SKILL.md` that can be uploaded as a custom skill.
 
+Version 4, on 30 October, is the third pass over the same 220 shots, this time about themes. A theme engine derives about 70 semantic roles (backgrounds, foregrounds, fills, borders, actions, status, materials, data, elevation and states) from a Light, Dark or Brand input, and checks every contrast pair. If one misses, the build fails. The same engine runs at build time, in the browser through `RDL.setTheme`, and on iOS in a new SwiftUI file, `RDLThemeEngine.swift`. The v3 token names still work as aliases.
+
 ## Result
 
-The repository is public and at version 3.3.0. It installs as a Claude Code plugin, as a folder skill, or as one 330 KB file with every source file embedded, which is also available as a plain `RDL.md` download. The audit script and the glass reference templates, a mobile set and a dashboard, are included.
+The repository is public and at version 4. It installs as a Claude Code plugin, as a folder skill, or as one 330 KB file with every source file embedded, which is also available as a plain `RDL.md` download. The audit script and the glass reference templates, a mobile set and a dashboard, are included. Version 4 adds two templates, `themes.html` and `theme-studio.html`, where I can try Brand colours, plus a contrast report and new references for themes and tokens.
 
 ## Learnings
 
 - The layout values are approximate. They are measured from mostly angled or depth-of-field shots, so I treat them as plus or minus 2pt and snap them to the 4pt grid. The colours are pixel-sampled and more reliable.
 - Removing the minimum-radius clamp mattered. Clamping broke concentric corners, so when the inner radius gets small the fix is to reduce the gap, not to bend the rule.
-- The SwiftUI files were written without a compiler. They need one build in Xcode before I would trust them, and the audit only covers HTML.
+- The SwiftUI files, now including the theme engine, were written without a compiler. They need one build in Xcode before I would trust them, and the audit only covers HTML.
 - The flat v1 templates keep their original inline values and are not audit-clean. The glass templates are the reference.
 
 ## Notes
