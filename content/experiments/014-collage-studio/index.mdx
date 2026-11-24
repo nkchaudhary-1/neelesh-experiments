@@ -1,0 +1,57 @@
+---
+id: "014"
+title: "Collage Studio"
+slug: "collage-studio"
+date: "2026-11-19"
+status: "building"
+categories:
+  - "UI"
+  - "Tools"
+  - "Web"
+tags:
+  - "Editor"
+  - "Instagram"
+  - "Photo"
+  - "Video"
+  - "Canvas"
+description: "A browser editor for Instagram posts, collages and mixed photo and video carousels, with a quiet Figma-style canvas. Everything runs on your device."
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/Ideas/tree/HEAD/collage-editor"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Konva"
+  - "Zustand"
+  - "Tailwind CSS"
+updated: "2026-11-21"
+draft: false
+ogImage: ""
+---
+
+# Collage Studio
+
+A browser-based editor for Instagram posts, collages, editorial typography and carousels that mix photos and video. A separate mode, Edit photos and videos, does colour, light and look work with no collage involved. Everything runs in the browser and nothing is uploaded.
+
+## Overview
+
+The canvas fills the middle of the screen and everything else is a rounded card around it. A labelled rail on the left groups the tools into Add, Design and Manage. A properties card on the right stays closed until a selection needs it. A mode chip under the top bar always says what kind of project you are in and what the next step is, for example a carousel, step one of four.
+
+It covers the usual formats from 1:1 to 9:16 and a 12:5 panorama that is cut into slides on export. There are 60 editable templates in 18 tabs, 45 open-licence fonts, non-destructive photo adjustments including HSL and curves, video trimming, grid and freeform collages, layers with grouping, and 150 steps of undo. Projects autosave to the browser, and on a phone the editor switches to an app layout with a top bar, a bottom bar that follows your selection and bottom sheets.
+
+## The idea
+
+The README says the design language was built from an audit of a "Photo Edits" Figma file: rounded photo cards with 32, 48 and 64 pixel radii, generous gutters, soft serif titles over full-bleed photos and small spaced uppercase labels. Those patterns ship as grid presets, text presets and elements, so the editor starts from that style. The palette is black, white and one orange.
+
+## Process
+
+The project kept a standing set of design rules in the repository, for example one concentric corner-radius system with 24 and 32 pixel cards and capsule controls, and the editor was audited against them as it grew. In three days, from 19 to 21 November, it went from first commit to a front page of saved projects, a photo wheel, a Snapseed-style quick bar and a phone layout, in 38 commits. A scripted audit checks layouts at several screen sizes and in both themes.
+
+## Result
+
+A working editor in a public repository. It has unit tests for the colour pipeline and browser tests for the editing modes, plus phone layout checks. There is no hosted version linked yet.
+
+## Notes
+
+This entry is written from the project's README. Video export needs a recent Chrome, Edge or Safari 16.4 or later; photo editing and image export work in any modern browser. Only Chromium touch emulation was used for the phone checks, so iOS Safari itself has not been tested. The folder lives in the Ideas repository next to the Jarvis wallpaper experiment.

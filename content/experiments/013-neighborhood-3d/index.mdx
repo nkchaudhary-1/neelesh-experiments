@@ -1,0 +1,57 @@
+---
+id: "013"
+title: "Neighborhood 3D"
+slug: "neighborhood-3d"
+date: "2026-11-19"
+status: "building"
+categories:
+  - "Interaction"
+  - "Web"
+  - "Experimental"
+tags:
+  - "Game"
+  - "Multiplayer"
+  - "3D"
+  - "Prototype"
+description: "A persistent multiplayer 3D street in the browser. The first slice asks one question: is this place enjoyable to walk through, before any game is layered on top?"
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/Game-Design/tree/claude/neighborhood-3d-game-concept-94hg1d/neighborhood"
+stack:
+  - "TypeScript"
+  - "Three.js"
+  - "WebSockets"
+  - "Vite"
+  - "Vitest"
+updated: "2026-11-20"
+draft: false
+ogImage: ""
+---
+
+# Neighborhood 3D
+
+A persistent, multiplayer, browser-based 3D street. This first prototype is the exploration slice of a larger blueprint: walk Maple Street, step into homes, climb real stairs, ride a real lift and meet other people. There are no heists, no economy and no ownership yet, on purpose.
+
+## Overview
+
+The world has a main street and a residential lane with ten houses, two of which you can enter, an apartment block with three floors and a roof terrace, and a park with a fountain, a playground and a hidden garden. Doors, light switches, benches, sofas, a doorbell and three hidden collectibles respond to the interact key. Chat, a wave, a dance and a minimap are in too.
+
+You can open it in two tabs or two browsers to see each other. State, such as your position, found collectibles, light switches and open doors, survives disconnects and server restarts.
+
+## The idea
+
+Before layering any game on a shared place, check that the place itself is pleasant to move through. The prototype's bet is exactly that, so everything that would make it a game was left out of the first build.
+
+## Process
+
+The server is authoritative, and the client predicts with the same movement code the server runs, then replays unacknowledged inputs on every snapshot. That keeps movement feeling instant at any latency while the server still owns position, doors, seats and the lift. The world is built entirely from axis-aligned boxes, which is why the client and server agree and why stairs are just boxes with a step-up height. The cost is no slopes or curves, which suits a street of rectilinear houses.
+
+The lift is a state machine, not an animation: it closes its doors, moves, opens them, and is synced for everyone who is riding it. The whole street is merged into a few dozen meshes, and the README measures about 105 draw calls per frame.
+
+## Result
+
+A playable prototype in a public repository. By its README it has 54 tests covering the movement controller, the real map, the lift and a real-WebSocket server suite. It also builds a single self-contained page of about 720 KB that runs the server inside the page with three simulated neighbours, so it can be tried with no server at all.
+
+## Notes
+
+This entry is written from the project's README, which is open about what is unverified: real-GPU frame rate, mouse look with pointer lock, touch controls, the roof and park by hand, and the guard chase in a browser, which is only unit-tested. The work is on a branch of the Game-Design repository (`claude/neighborhood-3d-game-concept-94hg1d`) that is not yet merged into the default branch, so the source link points at that branch.

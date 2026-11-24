@@ -36,3 +36,4 @@ Suggestions: record the event date and a hosted address; try a real run with gue
 - **2026-10-29:** Names setup, vote clock, curtain reveal and tie-break; moved to a static site; Vercel static preset; design pass.
 - **2026-10-29:** Discovered and added to the archive as entry 009.
 - **2026-11-01:** Interim review. Minor update only: a "Designed & developed by Neelesh Chaudhary" credit in the host Options drawer and an author meta tag. Entry not changed.
+- **2026-11-24:** Renumbered from 009 to 011 so entry IDs stay in date order after Undercover (009) and Hostile Skies (010) were added.

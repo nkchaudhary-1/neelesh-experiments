@@ -1,6 +1,6 @@
 # Nykaa Fashion redesign
 
-- **Status:** Building (site entry 010).
+- **Status:** Building (site entry 012).
 - **Live URL:** None found.
 - **Repository:** https://github.com/nkchaudhary-1/NykaaFashion
 - **Last reviewed:** 2026-11-01
@@ -34,3 +34,4 @@ Suggestions: first-row server rendering for listings (the repository measures ab
 
 - **2026-10-30:** Repository created; foundation to account flows, accessibility pass, art engine and polish.
 - **2026-11-01:** Discovered and added to the archive as entry 010.
+- **2026-11-24:** Renumbered from 010 to 012 so entry IDs stay in date order. Published with the 2026-11-01 weekly draft.

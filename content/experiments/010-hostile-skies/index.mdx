@@ -1,0 +1,54 @@
+---
+id: "010"
+title: "Hostile Skies"
+slug: "hostile-skies"
+date: "2026-10-27"
+status: "building"
+categories:
+  - "Interaction"
+  - "Web"
+  - "Experimental"
+tags:
+  - "Game"
+  - "3D"
+  - "Flight sim"
+  - "Procedural"
+description: "An arcade flight simulator in the browser: fly an interceptor against an alien fleet and defend three coastal cities, with every asset generated in code."
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/Game-Design/tree/claude/wonderful-gates-r2alu6/hostile-skies"
+stack:
+  - "TypeScript"
+  - "Three.js"
+  - "Vite"
+  - "Vitest"
+updated: "2026-11-19"
+draft: false
+ogImage: ""
+---
+
+# Hostile Skies
+
+An arcade flight simulator for the browser. You fly the Sparrow interceptor against an alien invasion fleet and defend three coastal cities across five waves that end with a mothership. It plays with keyboard, mouse, gamepad or touch.
+
+## Overview
+
+The goal is to survive five waves and destroy the Leviathan with as many cities standing as possible. Losing all three cities, or the aircraft, fails the mission. There are four kinds of enemy, each asking for something different: small swarm drones, fighters that hunt you, slow saucers that park over a city and burn it, and the Leviathan, whose shield nodes have to go before its core.
+
+You have a heat-limited cannon, lock-on missiles, a shield that recharges and a hull that does not. Kills are multiplied by a combo, and the best score is remembered per difficulty. Difficulty changes the aliens, not your aircraft, and the flight model can be assisted or manual.
+
+## The idea
+
+There are no art assets, no server and no account. Terrain, trees, clouds, ships, cockpit, sky and sound are all generated in code, and nothing is fetched at runtime.
+
+## Process
+
+It lives in the same repository as Spinblade Arena and shares its dependencies, but builds on its own. A scripted demo pilot flies a hands-off reel of about 75 seconds on the real engine, with the real heads-up display and sound. A recording script steps the game at a fixed rate so a smooth video with audio can be captured on a machine with no GPU. A single-file build packs the whole game into one HTML file that opens from disk.
+
+## Result
+
+A playable game in a public repository, with no hosted version linked yet. Its README lists 42 simulation tests. The most recent change, on 19 November, made a reference-painting theme the default.
+
+## Notes
+
+This entry is written from the project's README. The reel is described there as a scripted pilot with extra aim assist, not a replay of a human and not a benchmark of the real fight. The work sits on a branch of the Game-Design repository (`claude/wonderful-gates-r2alu6`) that is not yet merged into the default branch, so the source link points at that branch.

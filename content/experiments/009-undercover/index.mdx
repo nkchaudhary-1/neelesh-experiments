@@ -1,0 +1,60 @@
+---
+id: "009"
+title: "Undercover"
+slug: "undercover"
+date: "2026-10-11"
+status: "building"
+categories:
+  - "Interaction"
+  - "Web"
+  - "Experimental"
+tags:
+  - "Game"
+  - "Multiplayer"
+  - "Social deduction"
+  - "Realtime"
+description: "A real-time Mafia-style game for five to eleven friends, played on their own phones with no accounts, in a monochrome film-noir look."
+featured: false
+demoUrl: ""
+githubUrl: "https://github.com/nkchaudhary-1/Game-Design/tree/claude/focused-euler-h4ifnn/undercover"
+stack:
+  - "TypeScript"
+  - "Node.js"
+  - "React"
+  - "Vite"
+  - "WebSockets"
+  - "Redis"
+  - "Vitest"
+  - "Playwright"
+updated: ""
+draft: false
+ogImage: ""
+---
+
+# Undercover
+
+A social deduction game in the Mafia and Werewolf family, for five to eleven friends. A host creates a room and shares a link, everyone joins on their phone, roles are dealt in secret, and the game plays out in night and day rounds. The look is monochrome film noir.
+
+## Overview
+
+There are three ways to play. Online, one service and one URL serve the game to every phone. Pass and play uses a single phone that goes around the table for roles, night moves and secret ballots. Solo mode puts you in a room with bots that play legally. The two offline modes run the real room server inside the browser tab.
+
+Roles scale with the number of players: Traitors, a Doctor, a Police role, and an optional Bodyguard from seven players. A God mode lets the host narrate the game, see everything and write the announcements without playing.
+
+## The idea
+
+The README describes a game a group can start from a link: no accounts, one phone each, roles dealt in secret. Every player's screen is built from a personalised view of the game, so it shows only what that player's role is allowed to know.
+
+## Process
+
+The code is split into three packages. A shared engine holds the pure rules: role counts, assignment, night resolution, vote tally and win checks. The server owns the room state machine, timers, reconnects and host transfer, and sends each player a personalised view of the game. The client is a mobile-first interface, capped at 480 pixels wide, that rebuilds every screen from the server's snapshot.
+
+The server can keep rooms in memory or in Redis. Rate limits, reconnect grace and Open Graph tags for shared links are in the server too.
+
+## Result
+
+A playable game in a public repository, not yet hosted anywhere I can link to. By the project's own README it ships with 39 engine tests and 14 server tests, including a scan that checks no secret role leaks over a full nine-player game. It also has a headless simulator that plays 16 full games, a chaos variant with random disconnects, a test that kills the server mid-night and resumes the game from Redis, and a browser test where five phones play a whole game.
+
+## Notes
+
+This entry is written from the project's README and manifests. The test figures are the README's own, and I have not run the game. The code lives on a branch of the Game-Design repository (`claude/focused-euler-h4ifnn`) that has not been merged into its default branch, so the source link points at that branch.

@@ -22,6 +22,8 @@ For each repository, compare its newest commit with the marker. Use whichever wo
 
 Private repositories are never read or mentioned. Skip them silently.
 
+Also skip the `wedding-invite` folder in the `Ideas` repository: the owner asked for it to stay off the archive, so do not describe it or raise it in a note.
+
 ## 3. Look at the ones that moved
 
 For each repository that moved, use the `project-watcher` subagent, one call per repository, in parallel. Give it the repository, the project's folder if it shares a repository (Spinblade Arena and Bollywood Night Awards both live in Game-Design, folders in the snapshot), and the baseline commit.

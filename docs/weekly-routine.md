@@ -38,6 +38,8 @@ Inbox issue body, used if it ever needs recreating:
 
 The public repositories listed in the newest `audits/snapshots/*.json`, plus any new repository under `nkchaudhary-1`. Private repositories (OneMoment) are not read and are never mentioned in the inbox. To track one, attach it to the session yourself and add the notes by hand.
 
+**Never added, never mentioned:** the `wedding-invite` folder in the `Ideas` repository. The owner asked for it to stay off the archive, and its source holds personal details. If a similar folder appears, flag it in the inbox without describing it and wait for a reply.
+
 ## Running it on a schedule
 
 Two scheduled tasks wake one long-lived Claude Code session titled **After office hours: daily and weekly routine**. That session was started with this repository attached, which is what gives it GitHub access. A scheduled task that starts a brand-new session gets no repository, so it cannot read or post to the inbox issue.
