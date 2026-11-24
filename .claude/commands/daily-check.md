@@ -22,7 +22,7 @@ For each repository, compare its newest commit with the marker. Use whichever wo
 
 Private repositories are never read or mentioned. Skip them silently.
 
-Also skip the `wedding-invite` folder in the `Ideas` repository: the owner asked for it to stay off the archive, so do not describe it or raise it in a note.
+Also treat anything that looks personal (a family event, real people's names or phone numbers) as off limits: do not describe it. At most, say in one line that a personal folder appeared and leave it to the owner.
 
 ## 3. Look at the ones that moved
 

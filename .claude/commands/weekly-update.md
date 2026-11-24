@@ -30,7 +30,7 @@ Rules:
 - The repository is public: only public-safe information. Nothing from private repositories, Notion, Drive or employer work.
 - Do not invent live URLs, versions, dates or reasons. Put unknowns in the record as "Unknown / Needs review".
 - A project with no meaningful change gets no edit. Do not pad.
-- Never add the `wedding-invite` folder in the `Ideas` repository. The owner asked for it to stay off the archive.
+- Never add anything that looks personal (a family event, real people's names or phone numbers) unless the owner says so in the inbox.
 
 If nothing meaningful changed this week, do not create a branch. Post a `Skipped` comment on the inbox issue saying so, tell Neelesh in one line, and stop.
 
