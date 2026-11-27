@@ -1,7 +1,7 @@
 # Spinblade Arena
 
 - **Status:** Building (site entry).
-- **Live URL:** None found. It runs from a build (`npm run build:single` makes one self-contained HTML file). No hosted version linked.
+- **Live URL:** https://claude.ai/artifact/CFEjEHtQXu7zDLSyzE5FCh (a published Claude artifact titled "Spinblade Arena", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/Game-Design
 - **Last reviewed:** 2026-10-29
 - **Classification:** Major Update (priority High)
@@ -44,3 +44,4 @@ Suggestions: host the single-file build for a demo link; measure frame rate on a
 - **2026-10-29:** Interim review. Entry and screenshots updated for the new blade models.
 - **2026-10-19:** Interim review. Site entry rewritten for v2 with new screenshots (captured from a local build in a software-rendered browser).
 - **2026-11-01:** Interim review. Major update (30 Oct): a "What my powers do" panel, effect lists in the Hangar, an in-battle kit view (`H` or `?`), status chips and state rings, a Practice dummy round, and a fix for quick taps on Move 1. The README now says all 21 blades and 8 arenas play. Three blades sit outside the 35 to 65% balance band (Titan Breaker 71%, Bastion X 66%, Spectra 33%). Entry updated; screenshots unchanged. No hosted version found.
+- **2026-11-27:** Published-artifact link added to the entry.

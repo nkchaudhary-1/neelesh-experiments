@@ -96,7 +96,7 @@
       "name": "RDL Theme",
       "repo": "https://github.com/nkchaudhary-1/RDL-Theme",
       "visibility": "public",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/X7uQrbXku51ZiXETQWx6yR",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-09-27",
@@ -105,14 +105,14 @@
       "version": "4",
       "classification": "Major Update",
       "priority": "Medium",
-      "notes": "v4: Light, Dark and Brand themes with a contrast-checked theme engine for build time, browser and SwiftUI. Entry updated. No live URL found."
+      "notes": "v4: Light, Dark and Brand themes with a contrast-checked theme engine for build time, browser and SwiftUI. Entry updated. No live URL found. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "spinblade-arena",
       "name": "Spinblade Arena",
       "repo": "https://github.com/nkchaudhary-1/Game-Design",
       "visibility": "public",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/CFEjEHtQXu7zDLSyzE5FCh",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-10-06",
@@ -121,14 +121,14 @@
       "version": null,
       "classification": "Major Update",
       "priority": "Medium",
-      "notes": "Power explanations, in-battle kit view, status chips, practice dummy, Move 1 tap fix; README updated (21 blades, 8 arenas play). Entry updated. No hosted version found."
+      "notes": "Power explanations, in-battle kit view, status chips, practice dummy, Move 1 tap fix; README updated (21 blades, 8 arenas play). Entry updated. No hosted version found. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "ai-playground-deck",
       "name": "AI Playground deck",
       "repo": "https://github.com/nkchaudhary-1/Devfest-Slide",
       "visibility": "public",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/EqkJji2XCjBo4xVAiciJBX",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-10-09",
@@ -137,7 +137,7 @@
       "version": null,
       "classification": "No Change",
       "priority": "Low",
-      "notes": "One-file HTML deck, 13 slides. No README, event date unknown, no hosted version found."
+      "notes": "One-file HTML deck, 13 slides. No README, event date unknown, no hosted version found. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "bollywood-night-awards",
@@ -178,7 +178,7 @@
       "visibility": "public",
       "folder": "undercover",
       "branch": "claude/focused-euler-h4ifnn",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/3BFhVxfvKt9e2fSbUAPsue",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-10-11",
@@ -187,7 +187,7 @@
       "version": "0.1.0 (package.json)",
       "classification": "New",
       "priority": "Medium",
-      "notes": "Real-time Mafia-style game for 5 to 11 phones. Branch not merged into the repository's default branch. No hosted version found. Missed by the 2026-10 reviews, which only read default branches. Added as entry 009."
+      "notes": "Real-time Mafia-style game for 5 to 11 phones. Branch not merged into the repository's default branch. No hosted version found. Missed by the 2026-10 reviews, which only read default branches. Added as entry 009. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "hostile-skies",
@@ -196,7 +196,7 @@
       "visibility": "public",
       "folder": "hostile-skies",
       "branch": "claude/wonderful-gates-r2alu6",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/YCsT3aZdf6N3Rh2aeH5J6u",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-10-27",
@@ -205,7 +205,7 @@
       "version": "Unknown",
       "classification": "New",
       "priority": "Medium",
-      "notes": "Arcade flight sim, all assets generated in code. Branch not merged into the repository's default branch. No hosted version found. Added as entry 010."
+      "notes": "Arcade flight sim, all assets generated in code. Branch not merged into the repository's default branch. No hosted version found. Added as entry 010. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "neighborhood-3d",
@@ -214,7 +214,7 @@
       "visibility": "public",
       "folder": "neighborhood",
       "branch": "claude/neighborhood-3d-game-concept-94hg1d",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/3qJEAMv3jwdWydq8u6KuYQ",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-11-19",
@@ -223,7 +223,7 @@
       "version": "Unknown",
       "classification": "New",
       "priority": "Medium",
-      "notes": "Persistent multiplayer 3D street prototype; the README lists what is unverified. Branch not merged into the repository's default branch. No hosted version found. Added as entry 013."
+      "notes": "Persistent multiplayer 3D street prototype; the README lists what is unverified. Branch not merged into the repository's default branch. No hosted version found. Added as entry 013. Published Claude artifact link added 2026-11-27; public sharing not verified."
     },
     {
       "slug": "collage-studio",
@@ -267,7 +267,7 @@
       "visibility": "public",
       "folder": "speakup-30",
       "branch": "claude/speakup-30-speaking-coach-e3e7co",
-      "liveUrl": null,
+      "liveUrl": "https://claude.ai/artifact/9s9WGkL8q7RAX4XX61bVs7",
       "liveUrlVerified": false,
       "siteStatus": "building",
       "firstCommit": "2026-11-24",
@@ -276,7 +276,7 @@
       "version": "1.0.0 (package.json)",
       "classification": "New",
       "priority": "Medium",
-      "notes": "Local-first 30-day speaking coach. Branch not merged into the repository's default branch. No hosted version found. The entry deliberately describes it generically. Added as entry 016."
+      "notes": "Local-first 30-day speaking coach. Branch not merged into the repository's default branch. No hosted version found. The entry deliberately describes it generically. Added as entry 016. Published Claude artifact link added 2026-11-27; public sharing not verified."
     }
   ],
   "otherSources": [

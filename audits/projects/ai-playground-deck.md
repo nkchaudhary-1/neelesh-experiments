@@ -1,7 +1,7 @@
 # AI Playground deck
 
 - **Status:** Building (site entry). Event date and hosting Unknown / Needs Review.
-- **Live URL:** None found.
+- **Live URL:** https://claude.ai/artifact/EqkJji2XCjBo4xVAiciJBX (a published Claude artifact titled "Exploration with AI (newest of three same-day copies)", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/Devfest-Slide
 - **Last reviewed:** 2026-10-19
 - **Classification:** New Experiment (priority Medium)
@@ -34,3 +34,4 @@ Suggestions: add a README with the event date; host the file so the entry gets a
 
 - **2026-10-09:** Initial version and all redesign passes, in one day.
 - **2026-10-19:** Discovered and added to the archive as entry 008.
+- **2026-11-27:** Published-artifact link added to the entry.

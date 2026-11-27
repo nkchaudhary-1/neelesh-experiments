@@ -1,7 +1,7 @@
 # Hostile Skies
 
 - **Status:** Building (site entry 010).
-- **Live URL:** None found.
+- **Live URL:** https://claude.ai/artifact/YCsT3aZdf6N3Rh2aeH5J6u (a published Claude artifact titled "Hostile Skies", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/Game-Design (folder `hostile-skies`)
 - **Branch:** `claude/wonderful-gates-r2alu6` (not merged into the default branch)
 - **Last reviewed:** 2026-11-24
@@ -35,3 +35,4 @@ Suggestions: host the single-file build so the entry can link a playable version
 
 - **2026-10-27:** First commit.
 - **2026-11-24:** Discovered and added to the archive as entry 010.
+- **2026-11-27:** Published-artifact link added to the entry.

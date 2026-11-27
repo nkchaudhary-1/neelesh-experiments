@@ -1,7 +1,7 @@
 # SpeakUp 30
 
 - **Status:** Building (site entry 016).
-- **Live URL:** None found.
+- **Live URL:** https://claude.ai/artifact/9s9WGkL8q7RAX4XX61bVs7 (a published Claude artifact titled "SpeakUp 30", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/Ideas (folder `speakup-30`)
 - **Branch:** `claude/speakup-30-speaking-coach-e3e7co` (not merged into the default branch)
 - **Last reviewed:** 2026-11-24
@@ -35,3 +35,4 @@ Suggestions: host it over https so it can be used on a phone, and test the optio
 
 - **2026-11-24:** First commit.
 - **2026-11-24:** Discovered and added to the archive as entry 016.
+- **2026-11-27:** Published-artifact link added to the entry.

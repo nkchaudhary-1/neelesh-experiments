@@ -1,7 +1,7 @@
 # Neighborhood 3D
 
 - **Status:** Building (site entry 013).
-- **Live URL:** None found.
+- **Live URL:** https://claude.ai/artifact/3qJEAMv3jwdWydq8u6KuYQ (a published Claude artifact titled "Neighborhood Maple Street (newer of two same-day copies)", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/Game-Design (folder `neighborhood`)
 - **Branch:** `claude/neighborhood-3d-game-concept-94hg1d` (not merged into the default branch)
 - **Last reviewed:** 2026-11-24
@@ -35,3 +35,4 @@ Suggestions: the README's own unverified list (real-GPU frame rate, pointer-lock
 
 - **2026-11-19:** First commit.
 - **2026-11-24:** Discovered and added to the archive as entry 013.
+- **2026-11-27:** Published-artifact link added to the entry.

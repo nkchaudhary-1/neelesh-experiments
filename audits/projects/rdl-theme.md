@@ -1,7 +1,7 @@
 # RDL Theme
 
 - **Status:** Building (site entry).
-- **Live URL:** None. It is installed as a Claude Code plugin or skill, not hosted.
+- **Live URL:** https://claude.ai/artifact/X7uQrbXku51ZiXETQWx6yR (a published Claude artifact titled "RDL Theme Studio", added 2026-11-27 from the owner's artifact list; it is not a Vercel site, and whether it is shared publicly has not been verified).
 - **Repository:** https://github.com/nkchaudhary-1/RDL-Theme
 - **Last reviewed:** 2026-10-19
 - **Classification:** Minor Update (priority Low)
@@ -40,3 +40,4 @@ Suggestions: build the SwiftUI files once in Xcode; test the plugin install on a
 - **2026-10-20:** Repository pushed; no content change on the default branch.
 - **2026-10-27:** Interim review. No change.
 - **2026-11-01:** Interim review. Major update: version 4 (30 Oct) adds Light, Dark and Brand themes. A theme engine derives about 70 semantic roles, checks every contrast pair and fails the build on a miss; the same engine runs at build time, in the browser and in SwiftUI. New `themes.html` and `theme-studio.html` templates; v3 token names kept as aliases. Entry updated (description, stack, overview, process, result). The new v4 screenshots in the repository are not yet on the entry. No live URL found.
+- **2026-11-27:** Published-artifact link added to the entry.
