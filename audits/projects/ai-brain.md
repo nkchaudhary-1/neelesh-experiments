@@ -1,7 +1,7 @@
 # AI Brain
 
 - **Status:** Building (site entry). Featured on the home page.
-- **Live URL:** Unknown / Needs Review. The repository is set up for a hosted Vercel and Supabase app, but no confirmed production URL exists. `my-ai-brain.vercel.app` appears only as an example in the docs.
+- **Live URL:** https://my-ai-brain-beta.vercel.app (added 2026-11-27 from the owner's Vercel dashboard; opens publicly and the title matches the app). `my-ai-brain.vercel.app`, which the docs use as an example, is someone else's site and is not used.
 - **Repository:** https://github.com/nkchaudhary-1/Claude-AI-Brain
 - **Last reviewed:** 2026-10-29
 - **Classification:** Major Update (priority High)
@@ -37,3 +37,4 @@ Suggestions: confirm the hosted URL and set it on the entry; consider marking it
 - **2026-10-27:** v0.7: Recall, Library and notes.
 - **2026-10-06:** Baseline audit. No change.
 - **2026-10-29:** Interim review. Entry updated for v0.7.
+- **2026-11-27:** Production link added to the entry and status set to live.

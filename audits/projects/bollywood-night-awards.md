@@ -1,7 +1,7 @@
 # Bollywood Night Awards
 
 - **Status:** Building (site entry). Whether it has been used at an event, and any hosted copy, are Unknown / Needs Review.
-- **Live URL:** None found. The README says to deploy it on Vercel with the root directory set to `bollywood-vote`, and a commit sets Vercel's static preset, but no URL is documented.
+- **Live URL:** https://game-design-bollywood-vote.vercel.app (added 2026-11-27 from the owner's Vercel dashboard; opens publicly and the title matches the app).
 - **Repository:** https://github.com/nkchaudhary-1/Game-Design (folder `bollywood-vote`, in the same repository as Spinblade Arena)
 - **Last reviewed:** 2026-10-29
 - **Classification:** New Experiment (priority Medium)
@@ -37,3 +37,4 @@ Suggestions: record the event date and a hosted address; try a real run with gue
 - **2026-10-29:** Discovered and added to the archive as entry 009.
 - **2026-11-01:** Interim review. Minor update only: a "Designed & developed by Neelesh Chaudhary" credit in the host Options drawer and an author meta tag. Entry not changed.
 - **2026-11-24:** Renumbered from 009 to 011 so entry IDs stay in date order after Undercover (009) and Hostile Skies (010) were added.
+- **2026-11-27:** Production link added to the entry and status set to live.

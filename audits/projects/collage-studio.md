@@ -1,7 +1,7 @@
 # Collage Studio
 
 - **Status:** Building (site entry 014).
-- **Live URL:** None found.
+- **Live URL:** https://ideas-sigma-kohl.vercel.app (added 2026-11-27 from the owner's Vercel dashboard; opens publicly and the title matches the app).
 - **Repository:** https://github.com/nkchaudhary-1/Ideas (folder `collage-editor`)
 - **Last reviewed:** 2026-11-24
 - **Classification:** New Experiment (priority Medium)
@@ -34,3 +34,4 @@ Suggestions: host a build, and test iOS Safari, which the README says has not be
 
 - **2026-11-19:** First commit.
 - **2026-11-24:** Discovered and added to the archive as entry 014.
+- **2026-11-27:** Production link added to the entry and status set to live.
